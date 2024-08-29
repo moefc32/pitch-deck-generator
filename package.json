@@ -1,0 +1,32 @@
+{
+	"name": "nodejs-projects-boilerplate",
+	"version": "1.0.0",
+	"author": "Faizal Chan.",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@skeletonlabs/skeleton": "^2.10.0",
+		"@skeletonlabs/tw-plugin": "^0.4.0",
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@tailwindcss/forms": "^0.5.7",
+		"@tailwindcss/typography": "^0.5.10",
+		"autoprefixer": "^10.4.16",
+		"postcss": "^8.4.33",
+		"svelte": "^4.2.7",
+		"tailwindcss": "^3.4.1",
+		"vite": "^5.0.3"
+	},
+	"type": "module",
+	"dependencies": {
+		"axios": "^1.6.8",
+		"md5": "^2.3.0",
+		"mongodb": "^6.6.1"
+	}
+}
