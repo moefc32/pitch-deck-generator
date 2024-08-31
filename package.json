@@ -25,6 +25,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@google/generative-ai": "^0.17.1",
 		"axios": "^1.6.8",
 		"md5": "^2.3.0",
 		"mongodb": "^6.6.1"
