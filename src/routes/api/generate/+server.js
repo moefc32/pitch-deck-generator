@@ -22,10 +22,12 @@ export async function GET({ url }) {
 export async function POST({ request }) {
     const {
         topic = '',
+        detail = '',
+        language = '',
     } = await request.json() || {};
 
     try {
-        const response = await model.createData(topic);
+        const response = await model.createData({ topic, detail, language });
 
         return json({
             application: VITE_APP_NAME,

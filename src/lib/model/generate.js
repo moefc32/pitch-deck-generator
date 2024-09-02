@@ -26,22 +26,23 @@ export default {
             throw new Error('Error when getting data!');
         }
     },
-    createData: async (topic) => {
+    createData: async ({ topic, detail, language }) => {
         try {
             const timestamp = Date.now();
-            const generate = await gemini(topic);
-
-            const result = await collection.insertOne({
+            const generate = await gemini({ topic, detail, language });
+            const data = {
                 topic,
+                detail,
+                language,
                 created_at: timestamp,
                 result: generate,
-            });
+            }
+
+            const result = await collection.insertOne(data);
 
             return {
                 _id: result.insertedId,
-                topic,
-                created_at: timestamp,
-                result: generate,
+                ...data
             };
         } catch (e) {
             console.error(e);
