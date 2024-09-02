@@ -26,13 +26,12 @@ export default {
             throw new Error('Error when getting data!');
         }
     },
-    createData: async ({ topic, detail, language }) => {
+    createData: async ({ topic, language }) => {
         try {
             const timestamp = Date.now();
-            const generate = await gemini({ topic, detail, language });
+            const generate = await gemini({ topic, language });
             const data = {
                 topic,
-                detail,
                 language,
                 created_at: timestamp,
                 result: generate,
