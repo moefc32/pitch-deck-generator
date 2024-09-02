@@ -5,12 +5,9 @@ import model from '$lib/model/gemini';
 
 export async function GET() {
     try {
-        const gemini = await model('elearning for highschoolers');
-
         return json({
             application: VITE_APP_NAME,
             message: 'Application is healthy.',
-            data: gemini,
         });
     } catch (e) {
         console.error(e);
