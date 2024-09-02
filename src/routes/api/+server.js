@@ -1,8 +1,6 @@
 import { VITE_APP_NAME } from '$env/static/private'
 import { json, error } from '@sveltejs/kit';
 
-import model from '$lib/model/gemini';
-
 export async function GET() {
     try {
         return json({

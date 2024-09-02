@@ -37,7 +37,13 @@ export async function POST({ request, cookies }) {
                 }
             }
         }
-        error(400, 'Login failed, please try again!');
+
+        return json({
+            application: VITE_APP_NAME,
+            message: 'Login failed, please try again!',
+        }, {
+            status: 400,
+        });
     } catch (e) {
         console.error(e);
         error(500, e);
