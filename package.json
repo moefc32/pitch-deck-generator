@@ -26,7 +26,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource/inter": "^5.0.20",
+		"@fontsource/alata": "^5.0.15",
 		"@fontsource/plus-jakarta-sans": "^5.0.21",
 		"@google/generative-ai": "^0.17.1",
 		"axios": "^1.6.8",

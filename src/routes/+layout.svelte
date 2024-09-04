@@ -4,6 +4,8 @@
   import { initializeStores, Modal, Toast } from "@skeletonlabs/skeleton";
 
   import { pageTitle } from "$lib/component/stores/pageTitle";
+  import Header from "$lib/component/Header.svelte";
+  import Sidebar from "$lib/component/Sidebar.svelte";
 
   initializeStores();
 
@@ -25,9 +27,21 @@
 </svelte:head>
 
 {#if $page.status >= 300 || isNoHeaderFooterRoute}
-  <slot />
+  <div class="flex flex-1 flex-col gap-3 p-5">
+    <slot />
+  </div>
 {:else}
-  <slot />
+  {#if $page.url.pathname === "/"}
+    <Header />
+  {/if}
+  <div class="flex flex-1 flex-row">
+    {#if $page.url.pathname !== "/"}
+      <Sidebar />
+    {/if}
+    <div class="flex flex-1 flex-col gap-3 p-5">
+      <slot />
+    </div>
+  </div>
 {/if}
 
 <Modal />
