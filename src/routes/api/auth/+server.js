@@ -5,12 +5,12 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 export async function POST({ request, cookies }) {
-    try {
-        const {
-            email = '',
-            password = '',
-        } = await request.json() || {};
+    const {
+        email = '',
+        password = '',
+    } = await request.json() || {};
 
+    try {
         if (email && password) {
             const result = await model.getLogin(email);
 
@@ -51,12 +51,12 @@ export async function POST({ request, cookies }) {
 }
 
 export async function PATCH({ request }) {
-    try {
-        const {
-            email = '',
-            password = '',
-        } = await request.json() || {};
+    const {
+        email = '',
+        password = '',
+    } = await request.json() || {};
 
+    try {
         const data = {};
         if (email) data.email = email;
         if (password) data.password = await bcrypt.hash(password, 10);
@@ -65,6 +65,7 @@ export async function PATCH({ request }) {
 
         return json({
             application: VITE_APP_NAME,
+            message: 'User information updated successfully.',
             data: result,
         });
     } catch (e) {

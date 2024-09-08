@@ -10,12 +10,15 @@
   initializeStores();
 
   const noHeaderFooterRoutes = ["/login", "/register"];
+  const publicRoutes = ["/", "/about-us"];
 
   let isNoHeaderFooterRoute;
+  let isPublicRoute;
 
   $: {
     pageTitle.set($page.data.pageTitle || "");
     isNoHeaderFooterRoute = noHeaderFooterRoutes.includes($page.url.pathname);
+    isPublicRoute = publicRoutes.includes($page.url.pathname);
   }
 </script>
 
@@ -31,11 +34,11 @@
     <slot />
   </div>
 {:else}
-  {#if $page.url.pathname === "/"}
+  {#if isPublicRoute}
     <Header />
   {/if}
-  <div class="flex flex-1 flex-row">
-    {#if $page.url.pathname !== "/"}
+  <div class="flex flex-1 flex-row {isPublicRoute && 'mt-20'}">
+    {#if !isPublicRoute}
       <Sidebar />
     {/if}
     <div class="flex flex-1 flex-col gap-3 p-5">

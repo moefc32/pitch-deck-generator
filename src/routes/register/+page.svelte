@@ -6,7 +6,9 @@
     <p>
       Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
     </p>
-    <p></p>
+    <p>
+      <a href="/login" class="anchor">Login</a>
+    </p>
   </div>
   <div
     class="image flex justify-center items-center rounded rounded-tr-2xl rounded-br-2xl bg-primary-500 w-3/5"
