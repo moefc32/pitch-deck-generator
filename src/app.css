@@ -10,3 +10,7 @@ body {
     min-height: 100vh;
     font-family: "Plus Jakarta Sans";
 }
+
+.text-small {
+    font-size: .85em;
+}

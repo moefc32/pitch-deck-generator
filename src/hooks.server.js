@@ -7,6 +7,7 @@ export const handle = async ({ event, resolve }) => {
 
     const unprotectedRoutes = [
         '/',
+        '/blog',
         '/about-us',
     ];
     const conditionalRoutes = [

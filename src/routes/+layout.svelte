@@ -1,16 +1,33 @@
 <script>
   import "../app.css";
   import { page } from "$app/stores";
-  import { initializeStores, Modal, Toast } from "@skeletonlabs/skeleton";
+  import {
+    initializeStores,
+    Modal,
+    Toast,
+    storePopup,
+  } from "@skeletonlabs/skeleton";
+  import {
+    computePosition,
+    autoUpdate,
+    offset,
+    shift,
+    flip,
+    arrow,
+  } from "@floating-ui/dom";
 
   import { pageTitle } from "$lib/component/stores/pageTitle";
   import Header from "$lib/component/Header.svelte";
   import Sidebar from "$lib/component/Sidebar.svelte";
 
+  export let data;
+
   initializeStores();
 
+  storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
+
   const noHeaderFooterRoutes = ["/login", "/register"];
-  const publicRoutes = ["/", "/about-us"];
+  const publicRoutes = ["/", "/blog", "/about-us"];
 
   let isNoHeaderFooterRoute;
   let isPublicRoute;
@@ -34,10 +51,8 @@
     <slot />
   </div>
 {:else}
-  {#if isPublicRoute}
-    <Header />
-  {/if}
-  <div class="flex flex-1 flex-row {isPublicRoute && 'mt-20'}">
+  <Header {data} />
+  <div class="flex flex-1 flex-row">
     {#if !isPublicRoute}
       <Sidebar />
     {/if}

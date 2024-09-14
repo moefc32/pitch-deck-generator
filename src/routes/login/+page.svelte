@@ -19,7 +19,7 @@
     try {
       if (login.email && login.password) {
         const response = await axios.post("api/auth", login);
-        goto("/dashboard");
+        window.location.href = "/dashboard";
       }
     } catch (e) {
       console.error(e);

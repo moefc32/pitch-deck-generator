@@ -1,13 +1,51 @@
+<script>
+  import { goto } from "$app/navigation";
+  import { page } from "$app/stores";
+  import { LayoutDashboard, MessageCircle, List, Bolt } from "lucide-svelte";
+
+  const inactive =
+    "flex justify-center items-center w-[48px] h-[38px] rounded-lg";
+  const active = `${inactive} bg-primary-50 text-primary-500`;
+</script>
+
+<!-- svelte-ignore a11y-interactive-supports-focus -->
+<!-- svelte-ignore a11y-interactive-supports-focus -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <aside
-  class="flex flex-col justify-center items-center gap-3 p-3 bg-slate-50 border-e-2 border-slate-200"
+  class="flex flex-col items-center gap-3 px-3 py-6 bg-primary-500 text-white shadow-xl"
 >
-  <div>A</div>
-  <div>B</div>
-  <div>C</div>
+  <span
+    role="button"
+    class={$page.data.pageTitle === "Dashboard" ? active : inactive}
+    on:click={() => goto("/dashboard")}
+  >
+    <LayoutDashboard />
+  </span>
+  <span
+    role="button"
+    class={$page.data.pageTitle === "Prompt" ? active : inactive}
+    on:click={() => goto("/prompt")}
+  >
+    <MessageCircle />
+  </span>
+  <span
+    role="button"
+    class={$page.data.pageTitle === "History" ? active : inactive}
+    on:click={() => goto("/history")}
+  >
+    <List />
+  </span>
+  <span
+    role="button"
+    class="mt-auto {$page.data.pageTitle === 'Settings' ? active : inactive}"
+    on:click={() => goto("/settings")}
+  >
+    <Bolt />
+  </span>
 </aside>
 
 <style>
   aside {
-    width: 60px;
+    width: 65px;
   }
 </style>

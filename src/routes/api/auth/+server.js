@@ -10,8 +10,6 @@ export async function POST({ request, cookies }) {
         password = '',
     } = await request.json() || {};
 
-    console.log(email, password)
-
     try {
         if (email && password) {
             const result = await model.getLogin(email);
@@ -27,6 +25,18 @@ export async function POST({ request, cookies }) {
                         VITE_JWT_SECRET, { expiresIn: expiration });
 
                     cookies.set('access_token', accessToken, {
+                        path: '/',
+                        httpOnly: true,
+                        maxAge: expiration,
+                    });
+
+                    cookies.set('user_name', result.username, {
+                        path: '/',
+                        httpOnly: true,
+                        maxAge: expiration,
+                    });
+
+                    cookies.set('user_email', result.email, {
                         path: '/',
                         httpOnly: true,
                         maxAge: expiration,
