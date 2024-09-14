@@ -10,6 +10,8 @@ export async function POST({ request, cookies }) {
         password = '',
     } = await request.json() || {};
 
+    console.log(email, password)
+
     try {
         if (email && password) {
             const result = await model.getLogin(email);
