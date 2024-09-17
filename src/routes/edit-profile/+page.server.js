@@ -1,5 +1,5 @@
 export async function load() {
-    const pageTitle = 'User Profile';
+    const pageTitle = 'Edit Profile';
 
     return {
         pageTitle,

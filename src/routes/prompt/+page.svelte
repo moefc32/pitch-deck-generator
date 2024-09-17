@@ -1,4 +1,4 @@
-<h1>Welcome to SvelteKit</h1>
-<p>
-  Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
-</p>
+<div class="flex flex-1 gap-3">
+  <div class="card p-3 w-[300px] bg-primary-200"></div>
+  <div class="card flex flex-1 gap-3 p-3 bg-gray-200"></div>
+</div>

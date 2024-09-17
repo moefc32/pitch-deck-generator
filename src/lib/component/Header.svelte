@@ -1,12 +1,13 @@
 <script>
   import { goto } from "$app/navigation";
   import { popup } from "@skeletonlabs/skeleton";
-  import { LogIn } from "lucide-svelte";
+  import { LogIn, LayoutDashboard } from "lucide-svelte";
   import axios from "axios";
 
   import ProfilePicture from "./ProfilePicture.svelte";
 
   export let data;
+  export let isPublicRoute;
 
   const popupFeatured = {
     event: "click",
@@ -50,7 +51,7 @@
 <header
   class="flex flex-row justify-center items-center gap-6 px-4 py-3 bg-slate-50 shadow-xl z-[100]"
 >
-  <div class="flex flex-row gap-4 me-auto">
+  <div class="flex flex-row gap-6 me-auto">
     <span role="button" on:click={() => goto("/")}>Home</span>
     <span role="button" on:click={() => goto("/blog")}>Blog</span>
     <span role="button" on:click={() => goto("/about-us")}>About Us</span>
@@ -62,7 +63,17 @@
   {:else}
     <div class="flex items-center gap-2">
       <p class="text-small">
-        {hello}, <strong>{data.user_name}</strong>
+        {#if isPublicRoute}
+          <span
+            role="button"
+            class="btn variant-filled-tertiary -me-11 pe-12"
+            on:click={() => goto("/dashboard")}
+          >
+            <LayoutDashboard size={16} class={"me-1"} /> Open Dashboard
+          </span>
+        {:else}
+          {hello}, <strong>{data.user_name}</strong>
+        {/if}
       </p>
       <button use:popup={popupFeatured}>
         <ProfilePicture email={data.user_email} size={30} />
@@ -72,6 +83,10 @@
         data-popup="user-picture"
       >
         <div class="flex flex-col items-stretch">
+          <button
+            class="btn btn-sm justify-start hover:bg-zinc-400"
+            on:click={() => goto("/edit-profile")}>Edit Profile</button
+          >
           <button
             class="btn btn-sm justify-start hover:bg-zinc-400"
             on:click={() => doLogout()}>Logout</button
@@ -84,7 +99,7 @@
 
 <style>
   header {
-    height: 60px;
+    height: 75px;
   }
 
   [data-popup="user-picture"] {

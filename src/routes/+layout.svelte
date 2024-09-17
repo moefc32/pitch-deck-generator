@@ -51,7 +51,7 @@
     <slot />
   </div>
 {:else}
-  <Header {data} />
+  <Header {data} {isPublicRoute} />
   <div class="flex flex-1 flex-row">
     {#if !isPublicRoute}
       <Sidebar />
