@@ -56,7 +56,10 @@
     {#if !isPublicRoute}
       <Sidebar />
     {/if}
-    <div class="flex flex-1 flex-col gap-3 p-5">
+    <div
+      class="flex flex-1 flex-col gap-3 p-5 {!isPublicRoute &&
+        'dashboard-content'}"
+    >
       <slot />
     </div>
   </div>
@@ -64,3 +67,9 @@
 
 <Modal />
 <Toast position="br" />
+
+<style>
+  .dashboard-content {
+    max-height: calc(100vh - 75px);
+  }
+</style>

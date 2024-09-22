@@ -95,7 +95,7 @@
         {#if isPublicRoute}
           <span
             role="button"
-            class="btn variant-filled-tertiary -me-11 pe-12"
+            class="btn variant-filled-surface -me-11 pe-12"
             on:click={() => goto("/dashboard")}
           >
             <LayoutDashboard size={16} class={"me-1"} /> Open Dashboard

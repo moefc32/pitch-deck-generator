@@ -5,14 +5,14 @@
 
   const inactive =
     "flex justify-center items-center w-[48px] h-[38px] rounded-lg";
-  const active = `${inactive} bg-primary-800`;
+  const active = `${inactive} bg-surface-900`;
 </script>
 
 <!-- svelte-ignore a11y-interactive-supports-focus -->
 <!-- svelte-ignore a11y-interactive-supports-focus -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <aside
-  class="flex flex-col items-center gap-2 px-3 py-6 bg-primary-500 text-white shadow-xl"
+  class="flex flex-col items-center gap-2 px-3 py-6 bg-surface-500 text-white shadow-xl"
 >
   <span
     role="button"
