@@ -1,4 +1,5 @@
 <script>
+  import { page } from "$app/stores";
   import { goto } from "$app/navigation";
   import { popup } from "@skeletonlabs/skeleton";
   import { LogIn, LayoutDashboard } from "lucide-svelte";
@@ -14,7 +15,10 @@
     target: "user-picture",
     placement: "bottom",
   };
+  const activePage =
+    "inline-block mt-[5px] bg-primary-500 rounded-lg w-6 h-[5px]";
 
+  let pageUrl = "";
   let hello = "";
 
   async function doLogout() {
@@ -43,6 +47,10 @@
 
   updateClock();
   setInterval(updateClock, 1000);
+
+  $: {
+    pageUrl = $page.url.pathname;
+  }
 </script>
 
 <!-- svelte-ignore a11y-interactive-supports-focus -->
@@ -52,9 +60,30 @@
   class="flex flex-row justify-center items-center gap-6 px-4 py-3 bg-slate-50 shadow-xl z-[100]"
 >
   <div class="flex flex-row gap-6 me-auto">
-    <span role="button" on:click={() => goto("/")}>Home</span>
-    <span role="button" on:click={() => goto("/blog")}>Blog</span>
-    <span role="button" on:click={() => goto("/about-us")}>About Us</span>
+    <div class="flex flex-col justify-center items-center">
+      <span
+        role="button"
+        class="inline-block {pageUrl === '/' && 'mt-[10px]'}"
+        on:click={() => goto("/")}>Home</span
+      >
+      <span class={pageUrl === "/" && activePage}></span>
+    </div>
+    <div class="flex flex-col justify-center items-center">
+      <span
+        role="button"
+        class="inline-block {pageUrl.startsWith('/blog') && 'mt-[10px]'}"
+        on:click={() => goto("/blog")}>Blog</span
+      >
+      <span class={pageUrl.startsWith("/blog") && activePage}></span>
+    </div>
+    <div class="flex flex-col justify-center items-center">
+      <span
+        role="button"
+        class="inline-block {pageUrl.startsWith('/about-us') && 'mt-[10px]'}"
+        on:click={() => goto("/about-us")}>About Us</span
+      >
+      <span class={pageUrl.startsWith("/about-us") && activePage}></span>
+    </div>
   </div>
   {#if !data.user_id}
     <a href="/login" class="btn variant-filled-primary">
