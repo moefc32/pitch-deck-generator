@@ -2,6 +2,21 @@ import { VITE_APP_NAME } from '$env/static/private'
 import { json, error } from '@sveltejs/kit';
 import model from '$lib/model/config';
 
+export async function GET() {
+    try {
+        const result = await model.getConfig();
+
+        return json({
+            application: VITE_APP_NAME,
+            message: 'Get all configuration success.',
+            data: result,
+        });
+    } catch (e) {
+        console.error(e);
+        error(500, e);
+    }
+}
+
 export async function POST({ request }) {
     const {
         email = '',

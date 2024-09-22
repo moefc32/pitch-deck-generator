@@ -10,7 +10,7 @@ export default async function gemini({ topic, language }) {
     const model = genAI.getGenerativeModel({ model: VITE_GEMINI_MODEL });
 
     const config = await configs.getConfig();
-    const defaultPrompt = config.default_prompt;
+    const defaultPrompt = config.base_prompt;
     const generate = await model.generateContent(`
         ${defaultPrompt}, about "${topic}", in formal and proper ${language}`);
 

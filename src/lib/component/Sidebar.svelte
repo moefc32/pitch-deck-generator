@@ -40,8 +40,8 @@
   </span>
   <span
     role="button"
-    class="mt-auto {$page.data.pageTitle === 'Settings' ? active : inactive}"
-    title="Settings"
+    class="mt-auto {$page.data.pageTitle === 'Main Settings' ? active : inactive}"
+    title="Main Settings"
     on:click={() => goto("/settings")}
   >
     <Bolt />

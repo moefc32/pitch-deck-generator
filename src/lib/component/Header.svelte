@@ -16,7 +16,7 @@
     placement: "bottom",
   };
   const activePage =
-    "inline-block mt-[5px] bg-primary-500 rounded-lg w-6 h-[5px]";
+    "inline-block mt-[5px] bg-primary-500 rounded-lg w-4 h-[5px]";
 
   let pageUrl = "";
   let hello = "";
@@ -98,7 +98,7 @@
             class="btn variant-filled-surface -me-11 pe-12"
             on:click={() => goto("/dashboard")}
           >
-            <LayoutDashboard size={16} class={"me-1"} /> Open Dashboard
+            <LayoutDashboard size={16} class={"me-1"} /> To Dashboard
           </span>
         {:else}
           {hello}, <strong>{data.user_name}</strong>

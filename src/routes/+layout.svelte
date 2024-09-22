@@ -60,6 +60,9 @@
       class="flex flex-1 flex-col gap-3 p-5 {!isPublicRoute &&
         'dashboard-content'}"
     >
+      {#if !isPublicRoute && $pageTitle !== 'Prompt'}
+        <h1 class="h3 mb-1">{$pageTitle}</h1>
+      {/if}
       <slot />
     </div>
   </div>

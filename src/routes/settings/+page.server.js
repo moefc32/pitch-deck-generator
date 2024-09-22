@@ -1,8 +1,19 @@
-export async function load() {
-    const pageTitle = 'Settings';
+export async function load({ fetch }) {
+    const pageTitle = 'Main Settings';
 
-    return {
-        pageTitle,
-        content: [],
-    };
+    try {
+        const response = await fetch('api/config');
+        const { data } = await response.json();
+
+        return {
+            pageTitle,
+            content: data,
+        };
+    } catch (e) {
+        console.error(e);
+
+        return {
+            pageTitle,
+        };
+    }
 }
