@@ -18,7 +18,6 @@
 
   import { pageTitle } from "$lib/component/stores/pageTitle";
   import Header from "$lib/component/Header.svelte";
-  import Sidebar from "$lib/component/Sidebar.svelte";
 
   export let data;
 
@@ -26,15 +25,12 @@
 
   storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
-  const noHeaderFooterRoutes = ["/login", "/register"];
-  const publicRoutes = ["/", "/blog", "/about-us"];
+  const publicRoutes = ["/", "/about-us"];
 
-  let isNoHeaderFooterRoute;
   let isPublicRoute;
 
   $: {
     pageTitle.set($page.data.pageTitle || "");
-    isNoHeaderFooterRoute = noHeaderFooterRoutes.includes($page.url.pathname);
     isPublicRoute = publicRoutes.includes($page.url.pathname);
   }
 </script>
@@ -46,23 +42,18 @@
   </title>
 </svelte:head>
 
-{#if $page.status >= 300 || isNoHeaderFooterRoute}
+{#if $page.status >= 300}
   <div class="flex flex-1 flex-col gap-3 p-5">
     <slot />
   </div>
 {:else}
-  <Header {data} {isPublicRoute} />
+  <Header {data} />
   <div class="flex flex-1 flex-row">
-    {#if !isPublicRoute}
-      <Sidebar />
-    {/if}
     <div
-      class="flex flex-1 flex-col gap-3 p-5 {!isPublicRoute &&
-        'dashboard-content'}"
+      class="flex flex-1 flex-col gap-3 mx-auto p-5 {$page.url.pathname ===
+        '/prompt' && 'prompt-page'} {$page.url.pathname === '/about-us' &&
+        'max-w-screen-md'}"
     >
-      {#if !isPublicRoute && $pageTitle !== 'Prompt'}
-        <h1 class="h3 mb-1">{$pageTitle}</h1>
-      {/if}
       <slot />
     </div>
   </div>
@@ -72,7 +63,7 @@
 <Toast position="br" />
 
 <style>
-  .dashboard-content {
+  .prompt-page {
     max-height: calc(100vh - 75px);
   }
 </style>
