@@ -6,6 +6,9 @@ export default defineConfig(({ mode }) => {
 
     return {
         plugins: [sveltekit()],
+        ssr: {
+            noExternal: ['lucide-svelte'],
+        },
         server: {
             host: env.VITE_IPBIND || 'localhost',
             port: parseInt(env.VITE_PORT),

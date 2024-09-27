@@ -1,6 +1,5 @@
 import { join } from 'path';
 import { skeleton } from '@skeletonlabs/tw-plugin';
-import { mytheme } from './mytheme';
 import forms from '@tailwindcss/forms';
 
 export default {
@@ -9,7 +8,7 @@ export default {
         './src/**/*.{html,js,svelte,ts}',
         join(require.resolve(
             '@skeletonlabs/skeleton'),
-            '../**/*.{html,js,svelte,ts}',
+            '../**/*.{html,js,svelte,ts}'
         ),
     ],
     theme: {
@@ -17,13 +16,8 @@ export default {
     },
     plugins: [
         skeleton({
-            themes: {
-                // preset: ['skeleton'],
-                custom: [
-                    mytheme,
-                ],
-            },
+            themes: { preset: ["skeleton"] }
         }),
         forms,
-    ],
+    ]
 }

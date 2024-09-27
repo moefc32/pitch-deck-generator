@@ -12,7 +12,7 @@ export default async function gemini({ topic, language }) {
     const config = await configs.getConfig();
     const defaultPrompt = config.base_prompt;
     const generate = await model.generateContent(`
-        ${defaultPrompt}, about "${topic}", in formal and proper ${language}`);
+        ${defaultPrompt}, about "${topic}", in formal and proper ${language}.`);
 
     const getResult = generate.response.text();
     const cleanData = getResult.replace(/```json\n|\n```/g, '').trim();
