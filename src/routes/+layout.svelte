@@ -51,7 +51,7 @@
   <div class="flex flex-1 flex-row">
     <div
       class="flex flex-1 flex-col gap-3 mx-auto p-5 {$page.url.pathname ===
-        '/prompt' && 'prompt-page'} {$page.url.pathname === '/about-us' &&
+        '/generate' && 'prompt-page'} {$page.url.pathname === '/about-us' &&
         'max-w-screen-md'}"
     >
       <slot />

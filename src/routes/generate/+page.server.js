@@ -1,5 +1,5 @@
 export async function load() {
-    const pageTitle = 'Prompt';
+    const pageTitle = 'Generate';
 
     return {
         pageTitle,

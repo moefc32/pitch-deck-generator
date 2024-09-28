@@ -2,7 +2,7 @@
   import { Avatar } from "@skeletonlabs/skeleton";
 </script>
 
-<h2 class="h1 md:h2 mt-3 md:mt-6 mb-6 md:mb-9">About Us</h2>
+<h2 class="section-title h1 md:h2 mt-3 md:mt-6 mb-6 md:mb-9">About Us</h2>
 <div
   class="flex flex-col md:flex-row justify-center items-start gap-6 md:gap-9"
 >

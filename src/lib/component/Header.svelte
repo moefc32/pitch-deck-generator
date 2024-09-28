@@ -41,10 +41,10 @@
     <div class="flex flex-col justify-center items-center">
       <span
         role="button"
-        class="inline-block {pageUrl === '/prompt' && 'mt-[10px]'}"
-        on:click={() => goto("/prompt")}>Prompt</span
+        class="inline-block {pageUrl === '/generate' && 'mt-[10px]'}"
+        on:click={() => goto("/generate")}>Generate</span
       >
-      <span class={pageUrl === "/prompt" && activePage}></span>
+      <span class={pageUrl === "/generate" && activePage}></span>
     </div>
     <div class="flex flex-col justify-center items-center">
       <span

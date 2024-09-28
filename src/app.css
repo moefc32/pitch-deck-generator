@@ -11,6 +11,10 @@ body {
     font-family: "Plus Jakarta Sans";
 }
 
+.section-title {
+    font-family: "Alata" !important;
+}
+
 .text-small {
     font-size: .85em;
 }
