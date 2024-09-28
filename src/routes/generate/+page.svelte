@@ -5,6 +5,11 @@
 
   let step = 1;
   let loading = false;
+  let formData = {
+    topic: "",
+    language: "",
+    tone: "",
+  };
 
   async function navigateScreen() {
     if (step < 2) {
@@ -57,7 +62,7 @@
     <div class="flex flex-col">
       <p class="text-secondary-500 font-bold">Step {step} of 3</p>
       <h2 class="section-title mt-2 mb-6">
-        <span class="h1 md:h2">
+        <span class="h2 md:h3">
           {step === 1
             ? "Enter Your Preferred Topic"
             : step === 2
@@ -66,11 +71,11 @@
         </span>
       </h2>
     </div>
-    <section class="flex-1 leading-7">
+    <section class="flex flex-1 flex-col justify-center items-center leading-7">
       {#if step === 1}
-        <TopicScreen />
+        <TopicScreen {formData} />
       {:else if step === 2}
-        <LanguageScreen />
+        <LanguageScreen {formData} />
       {:else}
         <ResultScreen />
       {/if}
@@ -81,10 +86,21 @@
           type="button"
           class="btn variant-filled-secondary"
           title="Proceed to the next step"
+          disabled
           on:click={() => navigateScreen()}
         >
           Next Step
         </button>
+        {#if step === 2}
+          <button
+            type="button"
+            class="btn variant-filled lg:ms-auto"
+            title="Back to previous step"
+            on:click={() => (step = 1)}
+          >
+            Back
+          </button>
+        {/if}
       {:else}
         <button
           type="button"

@@ -23,10 +23,11 @@ export async function POST({ request }) {
     const {
         topic = '',
         language = '',
+        tone = '',
     } = await request.json() || {};
 
     try {
-        const response = await model.createData({ topic, language });
+        const response = await model.createData({ topic, language, tone });
 
         return json({
             application: VITE_APP_NAME,
