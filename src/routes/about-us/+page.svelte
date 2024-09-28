@@ -1,9 +1,16 @@
 <script>
   import { Avatar } from "@skeletonlabs/skeleton";
+
+  export let data;
+
+  const { pageTitle } = data;
 </script>
 
-<h2 class="section-title h1 md:h2 mt-3 md:mt-6 mb-6 md:mb-9">About Us</h2>
-<div
+<h2 class="section-title mt-3 md:mt-6 mb-6 md:mb-9">
+  <span class="h1 md:h2">{pageTitle}</span>
+  <span class="text-7xl leading-3 text-secondary-500">.</span>
+</h2>
+<section
   class="flex flex-col md:flex-row justify-center items-start gap-6 md:gap-9"
 >
   <Avatar src="mfc.jpg" width="w-36" rounded="mx-auto rounded-full" />
@@ -39,7 +46,7 @@
         </a>
       </div>
       <div class="flex flex-1 flex-col gap-3">
-        <p>Application stacks :</p>
+        <p>Development stacks :</p>
         <ul class="list-disc ps-6 leading-7">
           <li>
             <a href="https://kit.svelte.dev" target="_blank" class="anchor">
@@ -65,4 +72,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>
