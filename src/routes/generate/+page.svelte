@@ -1,4 +1,6 @@
 <script>
+  import axios from "axios";
+
   import Checklist from "./Checklist.svelte";
   import TopicScreen from "./screen/Topic.svelte";
   import LanguageScreen from "./screen/Language.svelte";
@@ -7,8 +9,8 @@
   let step = 1;
   let formData = {
     topic: "",
-    language: "",
-    tone: "",
+    language: "english",
+    tone: "formal",
   };
   let response;
 
@@ -33,9 +35,18 @@
   async function handleSubmit() {
     step = 3;
 
-    setTimeout(() => {
-      step = 4;
-    }, 3000);
+    const startTime = Date.now();
+    const result = await axios.post("api/prompt", formData);
+
+    const elapsedTime = Date.now() - startTime;
+    const remainingTime = 2000 - elapsedTime;
+
+    if (remainingTime > 0) {
+      await new Promise((resolve) => setTimeout(resolve, remainingTime));
+    }
+
+    response = result.data.data;
+    step = 4;
   }
 </script>
 

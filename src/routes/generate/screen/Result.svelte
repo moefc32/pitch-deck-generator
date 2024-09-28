@@ -5,8 +5,6 @@
   export let response;
   export let navigateBack;
 
-  console.log(response);
-
   async function exportDocument(file) {}
 </script>
 
@@ -18,8 +16,10 @@
     <div class="text-gray-700">Loading, please wait...</div>
   </div>
 {:else}
-  <div class="flex flex-1 flex-col justify-center items-center self-stretch">
-    <div>Result goes here</div>
+  <div class="flex flex-1 flex-col self-stretch">
+    <div class="response card p-3 overflow-y-auto">
+      {JSON.stringify(response)}
+    </div>
   </div>
 
   <div class="flex flex-col self-stretch lg:flex-row gap-2 lg:gap-3">
@@ -49,3 +49,9 @@
     </button>
   </div>
 {/if}
+
+<style>
+  .response {
+    max-height: calc(100vh - 320px);
+  }
+</style>
