@@ -4,7 +4,7 @@
   import { BriefcaseBusiness } from "lucide-svelte";
 
   const activePage =
-    "inline-block mt-[5px] bg-tertiary-500 rounded-lg w-5 h-[5px]";
+    "inline-block mt-[5px] bg-primary-500 rounded-lg w-5 h-[5px]";
 
   let pageUrl = "";
 

@@ -51,8 +51,7 @@
   <div class="flex flex-1 flex-row">
     <div
       class="flex flex-1 flex-col gap-3 mx-auto p-5 {$page.url.pathname ===
-        '/generate' && 'prompt-page'} {$page.url.pathname === '/about-us' &&
-        'max-w-screen-md'}"
+        '/about-us' && 'max-w-screen-md'}"
     >
       <slot />
     </div>
@@ -61,9 +60,3 @@
 
 <Modal />
 <Toast position="br" />
-
-<style>
-  .prompt-page {
-    max-height: calc(100vh - 75px);
-  }
-</style>
