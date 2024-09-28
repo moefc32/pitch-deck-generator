@@ -47,7 +47,7 @@
     <slot />
   </div>
 {:else}
-  <Header {data} />
+  <Header />
   <div class="flex flex-1 flex-row">
     <div
       class="flex flex-1 flex-col gap-3 mx-auto p-5 {$page.url.pathname ===
