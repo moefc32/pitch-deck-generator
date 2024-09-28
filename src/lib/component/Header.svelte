@@ -27,7 +27,7 @@
       class="flex items-center gap-2 font-bold"
       on:click={() => goto("/")}
     >
-      <BriefcaseBusiness size={28} />
+      <BriefcaseBusiness size={24} />
       {import.meta.env.VITE_APP_NAME}
     </h1>
     <div class="flex flex-col justify-center items-center ms-auto">
@@ -59,11 +59,10 @@
 
 <style>
   header {
-    height: 75px;
+    height: 65px;
   }
 
   h1 {
-    font-size: 1.35rem;
-    letter-spacing: 0.05rem;
+    font-size: 1.25rem;
   }
 </style>
