@@ -20,7 +20,9 @@
         class="flex justify-center items-center rounded-full w-[45px] h-[45px] border-2 {step >
         1
           ? 'bg-primary-600 text-white'
-          : 'bg-white'}"
+          : step === 1
+            ? 'bg-white'
+            : 'bg-white/35'}"
       >
         {#if step === 1}
           <Lightbulb size={24} />
@@ -44,7 +46,9 @@
         class="flex justify-center items-center rounded-full w-[45px] h-[45px] border-2 {step >
         2
           ? 'bg-primary-600 text-white'
-          : 'bg-white'}"
+          : step === 2
+            ? 'bg-white'
+            : 'bg-white/35'}"
       >
         {#if step <= 2}
           <Languages size={24} />
@@ -70,7 +74,9 @@
         class="flex justify-center items-center rounded-full w-[45px] h-[45px] border-2 {step >
         3
           ? 'bg-primary-600 text-white'
-          : 'bg-white'}"
+          : step === 3
+            ? 'bg-white'
+            : 'bg-white/35'}"
       >
         {#if step < 3}
           <FileJson size={24} />
@@ -98,7 +104,9 @@
         class="flex justify-center items-center rounded-full w-[45px] h-[45px] border-2 {step ===
         4
           ? 'bg-primary-600 text-white'
-          : 'bg-white'}"
+          : step === 4
+            ? 'bg-white'
+            : 'bg-white/35'}"
       >
         <ClipboardCheck size={24} />
       </div>

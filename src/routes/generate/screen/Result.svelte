@@ -30,15 +30,10 @@
   </div>
 {:else}
   <div class="flex flex-1 flex-col self-stretch w-full">
-    <!-- <pre
-      class="language-json p-0 break-words whitespace-pre-wrap overflow-y-auto">
-      <code class="!m-0 !p-3 !bg-none text-small leading-tight rounded-lg"
-        >{jsonResponse}</code
-      >
-    </pre> -->
+    <div class="mb-3">Data generated successfully.</div>
     <Highlight
       language={json}
-      class="language-json p-0 break-words whitespace-pre-wrap overflow-y-auto"
+      class="language-json p-0 text-small leading-tight break-words whitespace-pre-wrap rounded-lg overflow-y-auto"
       code={jsonResponse}
     ></Highlight>
   </div>
@@ -73,10 +68,6 @@
 
 <style>
   :global(.language-json) {
-    max-height: calc(100vh - 350px);
-  }
-
-  :global(.language-json code) {
-    border-radius: 0.5rem;
+    max-height: calc(100vh - 380px);
   }
 </style>

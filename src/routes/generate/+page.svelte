@@ -54,7 +54,7 @@
   <Checklist {step} />
   <div class="flex flex-1 flex-col gap-3 p-6">
     <div class="hidden lg:flex flex-col">
-      <p class="text-secondary-500 font-bold">Step {step} of 3</p>
+      <p class="text-secondary-500 font-bold">Step {step} of 4</p>
       <h2 class="section-title mt-2 mb-6">
         <span class="h2 md:h3">
           {step === 1
