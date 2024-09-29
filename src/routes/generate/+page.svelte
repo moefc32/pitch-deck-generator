@@ -9,8 +9,8 @@
   let step = 1;
   let formData = {
     topic: "",
-    language: "english",
-    tone: "formal",
+    language: "",
+    tone: "",
   };
   let response;
 

@@ -19,8 +19,6 @@
   import { pageTitle } from "$lib/component/stores/pageTitle";
   import Header from "$lib/component/Header.svelte";
 
-  export let data;
-
   initializeStores();
 
   storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });

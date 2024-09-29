@@ -1,28 +1,49 @@
 <script>
+  import Highlight from "svelte-highlight";
+  import json from "svelte-highlight/languages/json";
+  import github from "svelte-highlight/styles/github-dark-dimmed";
   import { LoaderCircle } from "lucide-svelte";
 
   export let step;
   export let response;
   export let navigateBack;
 
+  let jsonResponse;
+
   async function exportDocument(file) {}
+
+  $: {
+    jsonResponse = response ? JSON.stringify(response, null, 2).trim() : {};
+  }
 </script>
+
+<svelte:head>
+  {@html github}
+</svelte:head>
 
 {#if step === 3}
   <div
     class="flex flex-1 flex-col justify-center items-center self-stretch gap-3 mb-16 text-primary-600"
   >
     <LoaderCircle size={100} style="animation: spin 1s linear infinite" />
-    <div class="text-gray-700">Loading, please wait...</div>
+    <div class="text-gray-700">Generating content, please wait...</div>
   </div>
 {:else}
-  <div class="flex flex-1 flex-col self-stretch">
-    <div class="response card p-3 overflow-y-auto">
-      {JSON.stringify(response)}
-    </div>
+  <div class="flex flex-1 flex-col self-stretch w-full">
+    <!-- <pre
+      class="language-json p-0 break-words whitespace-pre-wrap overflow-y-auto">
+      <code class="!m-0 !p-3 !bg-none text-small leading-tight rounded-lg"
+        >{jsonResponse}</code
+      >
+    </pre> -->
+    <Highlight
+      language={json}
+      class="language-json p-0 break-words whitespace-pre-wrap overflow-y-auto"
+      code={jsonResponse}
+    ></Highlight>
   </div>
 
-  <div class="flex flex-col self-stretch lg:flex-row gap-2 lg:gap-3">
+  <div class="flex flex-col self-stretch lg:flex-row gap-2 lg:gap-3 mt-6">
     <button
       type="button"
       class="btn bg-[#d0522a] text-white"
@@ -51,7 +72,11 @@
 {/if}
 
 <style>
-  .response {
-    max-height: calc(100vh - 320px);
+  :global(.language-json) {
+    max-height: calc(100vh - 350px);
+  }
+
+  :global(.language-json code) {
+    border-radius: 0.5rem;
   }
 </style>
