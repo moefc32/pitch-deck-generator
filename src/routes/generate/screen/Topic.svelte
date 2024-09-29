@@ -26,7 +26,7 @@
 <!-- svelte-ignore a11y-interactive-supports-focus -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="flex flex-1 flex-col justify-center items-center self-stretch">
-  <label class="label mb-16 md:mb-20 lg:mb-24 w-full max-w-[600px]">
+  <label class="label mb-16 w-full max-w-[600px]">
     <div class="h1 leading-none font-extrabold mb-3 hidden lg:block">
       What do you<br />want to create?
     </div>

@@ -3,6 +3,7 @@
   import json from "svelte-highlight/languages/json";
   import github from "svelte-highlight/styles/github-dark-dimmed";
   import { LoaderCircle } from "lucide-svelte";
+  import axios from "axios";
 
   export let step;
   export let response;
@@ -10,7 +11,44 @@
 
   let jsonResponse;
 
-  async function exportDocument(file) {}
+  async function exportDocument(type) {
+    const languages = {
+      Indonesian: "id-ID",
+      English: "en-US",
+    };
+
+    try {
+      const result = await axios.post(`api/document?type=${type}`, {
+        language: languages[response.language],
+        data: response.generated,
+      });
+
+      const byteCharacters = atob(result.data.data.byte);
+      const byteNumbers = Array.from(byteCharacters, (char) =>
+        char.charCodeAt(0)
+      );
+      const byteArray = new Uint8Array(byteNumbers);
+
+      const documentBlob = new Blob([byteArray], {
+        type:
+          type === "pptx"
+            ? "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+            : "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      });
+
+      const documentUrl = URL.createObjectURL(documentBlob);
+      const documentLink = document.createElement("a");
+
+      documentLink.href = documentUrl;
+      documentLink.download = `${result.data.data.name}.${type}`;
+      documentLink.click();
+
+      documentLink.remove();
+      URL.revokeObjectURL(documentUrl);
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   $: {
     jsonResponse = response ? JSON.stringify(response, null, 2).trim() : {};

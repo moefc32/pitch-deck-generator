@@ -4,7 +4,7 @@
   export let handleSubmit;
 
   const languages = ["Indonesian", "English"];
-  const tones = ["Formal", "Casual", "Professional"];
+  const tones = ["Professional", "Formal", "Casual"];
 
   let enableNavigateScreen = false;
 
