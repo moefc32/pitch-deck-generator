@@ -21,7 +21,7 @@
 <!-- svelte-ignore a11y-interactive-supports-focus -->
 <!-- svelte-ignore a11y-interactive-supports-focus -->
 <aside
-  class="flex flex-col md:hidden p-2 text-center bg-gray-900 fixed top-0 bottom-0 lg:left-0 w-[300px] overflow-y-auto z-[1000] {$sidebarOpened ||
+  class="flex flex-col md:hidden p-2 text-center bg-gray-900 fixed top-0 bottom-0 lg:left-0 w-[300px] overflow-y-auto shadow-2xl z-[1000] {$sidebarOpened ||
     'hidden'}"
 >
   <div class="text-gray-100 text-xl">
