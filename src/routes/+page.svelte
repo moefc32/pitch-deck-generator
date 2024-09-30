@@ -35,6 +35,16 @@
     </div>
   {/each}
 </div>
+<div class="flex justify-end items-end gap-2 mx-4 md:mx-8 lg:mx-12 text-center">
+  <span class="text-small text-gray-500 font-bold">Powered by :</span>
+  <a href={content?.ai?.url} target="_blank">
+    <img
+      src={content?.ai?.image}
+      alt={content?.ai?.name}
+      class="mb-1 w-[75px]"
+    />
+  </a>
+</div>
 
 <style>
   section {

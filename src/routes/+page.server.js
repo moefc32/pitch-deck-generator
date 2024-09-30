@@ -18,7 +18,12 @@ export async function load() {
                     title: `Professional Output`,
                     caption: `The output is clean and well-structured, allowing you to present your ideas confidently or make quick edits as needed.`,
                 },
-            ]
+            ],
+            ai: {
+                name: 'Gemini AI',
+                image: 'gemini.png',
+                url: 'https://gemini.google.com',
+            },
         },
     };
 }

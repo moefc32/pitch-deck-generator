@@ -24,6 +24,7 @@ export async function load() {
                 </a>`
             ],
             organizer: {
+                name: 'IITC 2024',
                 image: 'iitc.png',
                 url: 'https://iitc.intermediaamikom.org',
             },

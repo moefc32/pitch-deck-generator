@@ -25,7 +25,7 @@
         <a href={content?.organizer?.url} target="_blank">
           <img
             src={content?.organizer?.image}
-            alt="IITC 2024"
+            alt={content?.organizer?.name}
             class="w-[140px]"
           />
         </a>
