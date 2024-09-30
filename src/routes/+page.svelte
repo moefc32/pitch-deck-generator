@@ -49,7 +49,7 @@
 <style>
   section {
     height: calc(100vh - 60px);
-    background: url(hero.jpg) center center no-repeat;
+    background: url(/hero.jpg) center center no-repeat;
     background-size: cover;
   }
 
