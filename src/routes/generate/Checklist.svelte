@@ -15,14 +15,14 @@
   class="lg:card p-6 lg:w-[360px] lg:bg-gradient-to-b from-secondary-100 to-primary-50"
 >
   <div class="flex lg:flex-col gap-6">
-    <div class="flex flex-1 flex-col lg:flex-row gap-3">
+    <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
       <div
-        class="flex justify-center items-center rounded-full w-[45px] h-[45px] border-2 {step >
+        class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
         1
           ? 'bg-primary-600 text-white'
           : step === 1
             ? 'bg-white'
-            : 'bg-white/35'}"
+            : 'bg-gray-100 text-gray-400'}"
       >
         {#if step === 1}
           <Lightbulb size={24} />
@@ -31,7 +31,12 @@
         {/if}
       </div>
       <div class="flex-1">
-        <h3 class="h5 font-bold {step !== 1 && 'text-gray-600'}">Input Idea</h3>
+        <h3
+          class="h5 font-bold hidden md:block text-center lg:text-start {step !==
+            1 && 'text-gray-600'}"
+        >
+          Input Idea
+        </h3>
         <p
           class="hidden lg:block text-small {step !== 1
             ? 'text-gray-500'
@@ -41,14 +46,14 @@
         </p>
       </div>
     </div>
-    <div class="flex flex-1 flex-col lg:flex-row gap-3">
+    <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
       <div
-        class="flex justify-center items-center rounded-full w-[45px] h-[45px] border-2 {step >
+        class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
         2
           ? 'bg-primary-600 text-white'
           : step === 2
             ? 'bg-white'
-            : 'bg-white/35'}"
+            : 'bg-gray-100 text-gray-400'}"
       >
         {#if step <= 2}
           <Languages size={24} />
@@ -57,7 +62,10 @@
         {/if}
       </div>
       <div class="flex-1">
-        <h3 class="h5 font-bold {step !== 2 && 'text-gray-600'}">
+        <h3
+          class="h5 font-bold hidden md:block text-center lg:text-start {step !==
+            2 && 'text-gray-600'}"
+        >
           Select Language
         </h3>
         <p
@@ -69,14 +77,14 @@
         </p>
       </div>
     </div>
-    <div class="flex flex-1 flex-col lg:flex-row gap-3">
+    <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
       <div
-        class="flex justify-center items-center rounded-full w-[45px] h-[45px] border-2 {step >
+        class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
         3
           ? 'bg-primary-600 text-white'
           : step === 3
             ? 'bg-white'
-            : 'bg-white/35'}"
+            : 'bg-gray-100 text-gray-400'}"
       >
         {#if step < 3}
           <FileJson size={24} />
@@ -87,7 +95,10 @@
         {/if}
       </div>
       <div class="flex-1">
-        <h3 class="h5 font-bold {step !== 3 && 'text-gray-600'}">
+        <h3
+          class="h5 font-bold hidden md:block text-center lg:text-start {step !==
+            3 && 'text-gray-600'}"
+        >
           Generating Data
         </h3>
         <p
@@ -99,19 +110,22 @@
         </p>
       </div>
     </div>
-    <div class="flex flex-1 flex-col lg:flex-row gap-3">
+    <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
       <div
-        class="flex justify-center items-center rounded-full w-[45px] h-[45px] border-2 {step ===
+        class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step ===
         4
           ? 'bg-primary-600 text-white'
           : step === 4
             ? 'bg-white'
-            : 'bg-white/35'}"
+            : 'bg-gray-100 text-gray-400'}"
       >
         <ClipboardCheck size={24} />
       </div>
       <div class="flex-1">
-        <h3 class="h5 font-bold {step !== 4 && 'text-gray-600'}">
+        <h3
+          class="h5 font-bold hidden md:block text-center lg:text-start {step !==
+            4 && 'text-gray-600'}"
+        >
           Result Summary
         </h3>
         <p
@@ -124,4 +138,13 @@
       </div>
     </div>
   </div>
+  <div class="progress-line -mt-12 md:-mt-16 mx-auto lg:hidden">
+    <hr class="h-[2px] bg-gray-300 !border-0" />
+  </div>
 </div>
+
+<style>
+  .progress-line {
+    width: calc(100vw * 0.667);
+  }
+</style>

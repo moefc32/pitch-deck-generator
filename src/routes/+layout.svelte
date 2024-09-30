@@ -23,13 +23,13 @@
 
   storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
-  const publicRoutes = ["/", "/about-us"];
+  const leanRoutes = ["/about-us"];
 
-  let isPublicRoute;
+  let isLeanRoutes;
 
   $: {
     pageTitle.set($page.data.pageTitle || "");
-    isPublicRoute = publicRoutes.includes($page.url.pathname);
+    isLeanRoutes = leanRoutes.includes($page.url.pathname);
   }
 </script>
 
@@ -48,8 +48,8 @@
   <Header />
   <div class="flex flex-1 flex-row">
     <div
-      class="flex flex-1 flex-col gap-3 mx-auto p-5 {$page.url.pathname ===
-        '/about-us' && 'max-w-screen-md'}"
+      class="flex flex-1 flex-col gap-3 mx-auto p-5 {isLeanRoutes &&
+        'max-w-screen-md'}"
     >
       <slot />
     </div>

@@ -8,11 +8,11 @@
 body {
     width: 100%;
     min-height: 100vh;
-    font-family: "Plus Jakarta Sans";
+    font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .section-title {
-    font-family: "Alata" !important;
+    font-family: "Alata", sans-serif !important;
 }
 
 .text-small {

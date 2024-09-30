@@ -3,6 +3,8 @@
   import { goto } from "$app/navigation";
   import { BriefcaseBusiness } from "lucide-svelte";
 
+  import navigation from "./navigation";
+
   const activePage =
     "inline-block mt-[5px] bg-primary-600 rounded-lg w-5 h-[5px]";
 
@@ -30,30 +32,18 @@
       <BriefcaseBusiness size={24} />
       {import.meta.env.VITE_APP_NAME}
     </h1>
-    <div class="flex flex-col justify-center items-center ms-auto">
-      <span
-        role="button"
-        class="inline-block {pageUrl === '/' && 'mt-[10px]'}"
-        on:click={() => goto("/")}>Home</span
+    {#each navigation as item, i}
+      <div
+        class="flex flex-col justify-center items-center {i === 0 && 'ms-auto'}"
       >
-      <span class={pageUrl === "/" && activePage}></span>
-    </div>
-    <div class="flex flex-col justify-center items-center">
-      <span
-        role="button"
-        class="inline-block {pageUrl === '/generate' && 'mt-[10px]'}"
-        on:click={() => goto("/generate")}>Generate</span
-      >
-      <span class={pageUrl === "/generate" && activePage}></span>
-    </div>
-    <div class="flex flex-col justify-center items-center">
-      <span
-        role="button"
-        class="inline-block {pageUrl.startsWith('/about-us') && 'mt-[10px]'}"
-        on:click={() => goto("/about-us")}>About Us</span
-      >
-      <span class={pageUrl.startsWith("/about-us") && activePage}></span>
-    </div>
+        <span
+          role="button"
+          class="inline-block {pageUrl === item.url && 'mt-[10px]'}"
+          on:click={() => goto(item.url)}>{item.name}</span
+        >
+        <span class={pageUrl === item.url && activePage}></span>
+      </div>
+    {/each}
   </div>
 </header>
 
