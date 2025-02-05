@@ -16,7 +16,6 @@
     arrow,
   } from "@floating-ui/dom";
 
-  import { pageTitle } from "$lib/component/stores/pageTitle";
   import Header from "$lib/component/Header.svelte";
 
   initializeStores();
@@ -28,14 +27,12 @@
   let isLeanRoutes;
 
   $: {
-    pageTitle.set($page.data.pageTitle || "");
     isLeanRoutes = leanRoutes.includes($page.url.pathname);
   }
 </script>
 
 <svelte:head>
   <title>
-    {$pageTitle && $pageTitle + " | "}
     {import.meta.env.VITE_APP_NAME}
   </title>
 </svelte:head>
