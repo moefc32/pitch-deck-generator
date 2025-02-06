@@ -1,7 +1,7 @@
 # Pitch Deck Generator
 A pitch deck documents generator powered by Gemini AI
 
-![image](https://github.com/user-attachments/assets/a0fa7545-4941-464e-893e-eff87372b6f9)
+![image](https://github.com/user-attachments/assets/2d08915b-47c1-49f3-83c6-4777eb822e49)
 
 ## Features
 
