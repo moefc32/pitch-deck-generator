@@ -1,7 +1,6 @@
 <script>
   import { page } from "$app/stores";
   import { goto } from "$app/navigation";
-  import { BriefcaseBusiness } from "lucide-svelte";
 
   const activePage =
     "inline-block mt-[5px] bg-primary-600 rounded-lg w-5 h-[5px]";
@@ -25,10 +24,9 @@
   <div class="flex flex-1 flex-row justify-center items-center gap-3 mx-4">
     <h1
       role="button"
-      class="flex items-center gap-2 me-auto font-bold"
+      class="flex items-center gap-2 me-auto ps-10 font-bold h-[50px]"
       on:click={() => goto("/")}
     >
-      <BriefcaseBusiness size={24} />
       {import.meta.env.VITE_APP_NAME}
     </h1>
   </div>
@@ -40,6 +38,8 @@
   }
 
   h1 {
+    background: url(./favicon.svg) 5px center no-repeat;
+    background-size: 30px;
     font-size: 1.25rem;
   }
 </style>

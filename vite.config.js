@@ -1,17 +1,18 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
+import dotenv from 'dotenv';
 
-export default defineConfig(({ mode }) => {
-    const env = loadEnv(mode, process.cwd(), '');
+dotenv.config();
 
-    return {
-        plugins: [sveltekit()],
-        ssr: {
-            noExternal: ['lucide-svelte'],
-        },
-        server: {
-            host: env.VITE_IPBIND || 'localhost',
-            port: parseInt(env.VITE_PORT),
-        }
-    };
+export default defineConfig({
+    plugins: [
+        sveltekit(),
+    ],
+    ssr: {
+        noExternal: ['lucide-svelte'],
+    },
+    server: {
+        host: process.env.VITE_IPBIND || 'localhost',
+        port: parseInt(process.env.VITE_PORT),
+    },
 });
