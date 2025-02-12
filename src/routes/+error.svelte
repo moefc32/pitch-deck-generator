@@ -10,7 +10,7 @@
 
 <div>
   <span>{$page.status}</span>
-  <span class="divider" />
+  <span class="divider"></span>
   <span class="text-uppercase">{$page.error.message}</span>
 </div>
 
@@ -21,6 +21,7 @@
     align-items: center;
     width: 100%;
     height: 100vh;
+    height: 100dvh;
     padding: 50px;
   }
 
