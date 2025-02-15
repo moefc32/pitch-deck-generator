@@ -27,6 +27,7 @@
 
   .divider {
     display: inline-block;
+    align-self: center;
     width: 1px;
     height: 27px;
     margin: 0 16px;
