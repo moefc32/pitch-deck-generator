@@ -29,7 +29,7 @@
         "@fontsource/plus-jakarta-sans": "^5.1.1",
         "@google/generative-ai": "^0.17.2",
         "axios": "^1.7.9",
-        "docx": "^9.1.1",
+        "docx": "^9.2.0",
         "dotenv": "^16.4.7",
         "lucide-svelte": "^0.437.0",
         "pptxgenjs": "^3.12.0"
