@@ -1,11 +1,15 @@
+require('dotenv').config();
+const packageJson = require('./package.json');
+
 module.exports = {
     apps: [
         {
-            name: 'Pitch Deck',
+            name: packageJson.name,
             script: 'build/index.js',
             env: {
-                PORT: process.env.VITE_PORT,
+                HOST: process.env.IPBIND || '127.0.0.1',
+                PORT: parseInt(process.env.PORT, 10) || 4000,
             },
         },
-    ],
+    ]
 };

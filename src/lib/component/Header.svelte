@@ -38,7 +38,7 @@
     }
 
     h1 {
-        background: url(./favicon.svg) 5px center no-repeat;
+        background: url(/favicon.svg) 5px center no-repeat;
         background-size: 30px;
         font-size: 1.25rem;
     }
