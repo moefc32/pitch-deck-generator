@@ -106,6 +106,6 @@
 
 <style>
     :global(.language-json) {
-        max-height: calc(100vh - 380px);
+        max-height: calc(100dvh - 380px);
     }
 </style>

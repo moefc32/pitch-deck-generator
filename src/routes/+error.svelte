@@ -20,8 +20,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 100vh;
-        height: 100dvh;
+        min-height: 100dvh;
         padding: 50px;
     }
 
