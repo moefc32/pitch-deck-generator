@@ -1,18 +1,18 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-@import "@fontsource/alata";
-@import "@fontsource/plus-jakarta-sans";
+@import '@fontsource/alata';
+@import '@fontsource/plus-jakarta-sans';
 
 body {
     width: 100%;
     min-height: 100dvh;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .section-title {
-    font-family: "Alata", sans-serif !important;
+    font-family: 'Alata', sans-serif !important;
 }
 
 .text-small {
