@@ -55,7 +55,7 @@
                 </div>
             {/if}
         </div>
-        <div class="text-right text-small">
+        <div class="text-right text-sm">
             <span class={formData.topic.length >= 80 && 'text-red-500'}>
                 {formData.topic.length}
             </span>/{limit}

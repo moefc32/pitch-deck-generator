@@ -38,7 +38,7 @@
                     Input Idea
                 </h3>
                 <p
-                    class="hidden lg:block text-small {step !== 1
+                    class="hidden lg:block text-sm {step !== 1
                         ? 'text-gray-500'
                         : 'text-gray-700'}"
                 >
@@ -70,7 +70,7 @@
                     Select Language
                 </h3>
                 <p
-                    class="hidden lg:block text-small {step !== 2
+                    class="hidden lg:block text-sm {step !== 2
                         ? 'text-gray-500'
                         : 'text-gray-700'}"
                 >
@@ -106,7 +106,7 @@
                     Generating Data
                 </h3>
                 <p
-                    class="hidden lg:block text-small {step !== 3
+                    class="hidden lg:block text-sm {step !== 3
                         ? 'text-gray-500'
                         : 'text-gray-700'}"
                 >
@@ -133,7 +133,7 @@
                     Result Summary
                 </h3>
                 <p
-                    class="hidden lg:block text-small {step !== 4
+                    class="hidden lg:block text-sm {step !== 4
                         ? 'text-gray-500'
                         : 'text-gray-700'}"
                 >

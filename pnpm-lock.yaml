@@ -11,12 +11,12 @@ importers:
       '@floating-ui/dom':
         specifier: ^1.6.13
         version: 1.6.13
+      '@fontsource-variable/plus-jakarta-sans':
+        specifier: ^5.1.1
+        version: 5.1.1
       '@fontsource/alata':
         specifier: ^5.1.2
         version: 5.1.2
-      '@fontsource/plus-jakarta-sans':
-        specifier: ^5.1.1
-        version: 5.1.1
       '@google/generative-ai':
         specifier: ^0.17.2
         version: 0.17.2
@@ -233,11 +233,11 @@ packages:
   '@floating-ui/utils@0.2.9':
     resolution: {integrity: sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==}
 
+  '@fontsource-variable/plus-jakarta-sans@5.1.1':
+    resolution: {integrity: sha512-89gGj8paLxMnlJWVbsWwTgI3T0VwncJmA2pf3nrOWTJK1RT+mQsE++3+BLTNLo7RpYvtuMbEFrsMsZXwGuL2zg==}
+
   '@fontsource/alata@5.1.2':
     resolution: {integrity: sha512-4bsQC+fG/fZd6vJjFtcO8iZDRIi1O1UHywX93+JdiUE2ln+8VDF66mXV/6vzGJmN9eBGugrl7wJ/PgAx2Nk84Q==}
-
-  '@fontsource/plus-jakarta-sans@5.1.1':
-    resolution: {integrity: sha512-czlD7FGbJqZ+5YVJ1LK3mVh2GIbGQZDQTtsv2leNgJC5lxNQ3dnqPURCNeW+nfPrcMHO94Er4qpklmJM++UHPw==}
 
   '@google/generative-ai@0.17.2':
     resolution: {integrity: sha512-TRKwCCqFe8JawNpvwk5FNcE9CQGUUjROiUxpH+uUR46sjLkgsR2v4+clu2axxnzEd9rnMpUNAJriUXeEu0zFBw==}
@@ -1354,9 +1354,9 @@ snapshots:
 
   '@floating-ui/utils@0.2.9': {}
 
-  '@fontsource/alata@5.1.2': {}
+  '@fontsource-variable/plus-jakarta-sans@5.1.1': {}
 
-  '@fontsource/plus-jakarta-sans@5.1.1': {}
+  '@fontsource/alata@5.1.2': {}
 
   '@google/generative-ai@0.17.2': {}
 

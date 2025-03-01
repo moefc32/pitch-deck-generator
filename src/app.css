@@ -2,21 +2,22 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import '@fontsource-variable/plus-jakarta-sans';
 @import '@fontsource/alata';
-@import '@fontsource/plus-jakarta-sans';
+
+input::-ms-reveal,
+input::-ms-clear {
+    display: none;
+}
 
 body {
     width: 100%;
     min-height: 100dvh;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans Variable', sans-serif;
 }
 
 .section-title {
     font-family: 'Alata', sans-serif !important;
-}
-
-.text-small {
-    font-size: .85em;
 }
 
 @keyframes spin {

@@ -71,7 +71,7 @@
         <div class="mb-3">Data generated successfully.</div>
         <Highlight
             language={json}
-            class="language-json p-0 text-small leading-tight break-words whitespace-pre-wrap rounded-lg overflow-y-auto"
+            class="language-json p-0 text-sm leading-tight break-words whitespace-pre-wrap rounded-lg overflow-y-auto"
             code={jsonResponse}
         ></Highlight>
     </div>
