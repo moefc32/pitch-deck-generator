@@ -71,7 +71,7 @@
         <div class="mb-3">Data generated successfully.</div>
         <Highlight
             language={json}
-            class="language-json p-0 text-sm leading-tight break-words whitespace-pre-wrap rounded-lg overflow-y-auto"
+            class="p-0 text-sm leading-tight break-words whitespace-pre-wrap max-h-[calc(100dvh-380px)] rounded-lg overflow-y-auto"
             code={jsonResponse}
         ></Highlight>
     </div>
@@ -103,9 +103,3 @@
         </button>
     </div>
 {/if}
-
-<style>
-    :global(.language-json) {
-        max-height: calc(100dvh - 380px);
-    }
-</style>

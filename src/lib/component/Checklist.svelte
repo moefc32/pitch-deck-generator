@@ -142,13 +142,7 @@
             </div>
         </div>
     </div>
-    <div class="progress-line -mt-12 md:-mt-16 mx-auto lg:hidden">
+    <div class="lg:hidden -mt-12 md:-mt-16 mx-auto w-[calc(100vw*.667)]">
         <hr class="h-[2px] bg-gray-300 !border-0" />
     </div>
 </div>
-
-<style>
-    .progress-line {
-        width: calc(100vw * 0.667);
-    }
-</style>
