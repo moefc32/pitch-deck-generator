@@ -7,6 +7,16 @@
 @import '@fontsource-variable/plus-jakarta-sans';
 @import '@fontsource/alata';
 
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 input::-ms-reveal,
 input::-ms-clear,
 input[type="search"]::-webkit-search-decoration,
@@ -22,14 +32,4 @@ body {
 
 .section-title {
     font-family: 'Alata', sans-serif !important;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
 }
