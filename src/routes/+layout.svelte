@@ -48,5 +48,4 @@
     </div>
 {/if}
 
-<Modal />
 <ToastProvider position="br" />
