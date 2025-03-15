@@ -1,12 +1,7 @@
 <script>
     import '../app.css';
     import { page } from '$app/stores';
-    import {
-        initializeStores,
-        Modal,
-        Toast,
-        storePopup,
-    } from '@skeletonlabs/skeleton';
+    import { ToastProvider } from '@skeletonlabs/skeleton-svelte';
     import {
         computePosition,
         autoUpdate,
@@ -54,4 +49,4 @@
 {/if}
 
 <Modal />
-<Toast position="br" />
+<ToastProvider position="br" />

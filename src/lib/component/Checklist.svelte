@@ -12,7 +12,7 @@
 </script>
 
 <div
-    class="lg:card p-6 lg:w-[360px] lg:bg-gradient-to-b from-secondary-100 to-primary-50"
+    class="lg:card p-6 lg:w-[360px] lg:bg-linear-to-b from-secondary-100 to-primary-50"
 >
     <div class="flex lg:flex-col gap-6">
         <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
@@ -143,6 +143,6 @@
         </div>
     </div>
     <div class="lg:hidden -mt-12 md:-mt-16 mx-auto w-[calc(100vw*.667)]">
-        <hr class="h-[2px] bg-gray-300 !border-0" />
+        <hr class="h-[2px] bg-gray-300 border-0!" />
     </div>
 </div>

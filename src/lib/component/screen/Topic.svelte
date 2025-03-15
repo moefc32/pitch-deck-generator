@@ -47,7 +47,7 @@
             {#if formData.topic.length}
                 <div
                     role="button"
-                    class="-ms-9 z-[10]"
+                    class="-ms-9 z-10"
                     title="Clear all text"
                     on:click={() => (formData.topic = '')}
                 >
@@ -66,7 +66,7 @@
 <div class="flex flex-col self-stretch lg:flex-row gap-2 lg:gap-3 mt-6">
     <button
         type="button"
-        class="btn variant-filled-secondary"
+        class="btn preset-filled-secondary-500"
         title="Proceed to the next step"
         disabled={!enableNavigateScreen}
         on:click={() => navigateScreen()}

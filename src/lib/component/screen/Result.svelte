@@ -95,7 +95,7 @@
         </button>
         <button
             type="button"
-            class="btn variant-filled lg:ms-auto"
+            class="btn preset-filled lg:ms-auto"
             title="Generate another pitch deck documents"
             on:click={() => navigateBack()}
         >
