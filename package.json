@@ -29,6 +29,7 @@
         "axios": "^1.8.2",
         "docx": "^9.2.0",
         "dotenv": "^16.4.7",
+        "jspdf": "^3.0.0",
         "lucide-svelte": "^0.437.0",
         "pptxgenjs": "^3.12.0"
     },

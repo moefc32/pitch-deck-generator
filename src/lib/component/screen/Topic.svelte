@@ -4,19 +4,7 @@
     export let formData;
     export let navigateScreen;
 
-    const limit = 100;
-
     let enableNavigateScreen = false;
-
-    async function handleKeydown(event) {
-        if (event.key === 'Enter') return navigateScreen();
-    }
-
-    async function handleInput() {
-        if (formData.topic.length > limit) {
-            formData.topic = formData.topic.slice(0, limit);
-        }
-    }
 
     $: {
         enableNavigateScreen = formData.topic.length ? true : false;
@@ -26,24 +14,12 @@
 <!-- svelte-ignore a11y-interactive-supports-focus -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="flex flex-1 flex-col justify-center items-center self-stretch">
-    <label class="label mb-16 w-full max-w-[600px]">
-        <div class="h1 leading-none font-extrabold mb-3 hidden lg:block">
-            What do you<br />want to create?
-        </div>
-        <div class="h3 font-extrabold mb-3 lg:hidden">
-            What do you want to create?
-        </div>
-        <div class="text-gray-500">
-            Enter the keywords for the topic you want to present
-        </div>
+    <label class="label mb-32 w-full max-w-[1200px]">
         <div class="flex items-center pt-2">
-            <input
-                type="text"
-                class="input ps-5 pe-12 py-3 rounded-lg"
+            <textarea
+                class="input ps-5 pe-12 py-3 rounded-lg min-h-[400px]"
                 bind:value={formData.topic}
-                on:keydown={handleKeydown}
-                on:input={handleInput}
-            />
+            ></textarea>
             {#if formData.topic.length}
                 <div
                     role="button"
@@ -54,11 +30,6 @@
                     <X size={24} />
                 </div>
             {/if}
-        </div>
-        <div class="text-right text-sm">
-            <span class={formData.topic.length >= 80 && 'text-red-500'}>
-                {formData.topic.length}
-            </span>/{limit}
         </div>
     </label>
 </div>
