@@ -7,7 +7,7 @@
 
     export let step;
     export let response;
-    export let navigateBack;
+    export let navigateScreen;
 
     let jsonResponse;
 
@@ -51,6 +51,7 @@
     }
 
     $: {
+        console.log('Response in Result.svelte:', response);
         jsonResponse = response ? JSON.stringify(response, null, 2).trim() : {};
     }
 </script>
@@ -96,10 +97,10 @@
         <button
             type="button"
             class="btn preset-filled lg:ms-auto"
-            title="Generate another pitch deck documents"
-            on:click={() => navigateBack()}
+            title="Generate PDF version of your pitch deck"
+            on:click={() => navigateScreen()}
         >
-            Generate Another
+            Generate PDF
         </button>
     </div>
 {/if}

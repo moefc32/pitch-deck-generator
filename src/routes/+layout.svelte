@@ -12,9 +12,9 @@
     } from '@floating-ui/dom';
 
     import Header from '$lib/component/Header.svelte';
+    import { initializeStores, storePopup } from '$lib/stores';
 
     initializeStores();
-
     storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 
     const leanRoutes = ['/about-us'];

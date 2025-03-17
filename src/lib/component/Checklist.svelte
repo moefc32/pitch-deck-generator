@@ -6,6 +6,7 @@
         LoaderCircle,
         FileJson,
         ClipboardCheck,
+        FileOutput,
     } from 'lucide-svelte';
 
     export let step;
@@ -116,14 +117,20 @@
         </div>
         <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
             <div
-                class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step ===
+                class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
                 4
                     ? 'bg-primary-600 text-white'
-                    : step === 4
-                      ? 'bg-white'
+                    : step === 4 || step === 5
+                      ? 'bg-primary-600 text-white'
                       : 'bg-gray-100 text-gray-400'}"
             >
-                <ClipboardCheck size={24} />
+                {#if step === 4}
+                    <ClipboardCheck size={24} />
+                {:else if step > 4}
+                    <Check size={24} />
+                {:else}
+                    <ClipboardCheck size={24} />
+                {/if}
             </div>
             <div class="flex-1">
                 <h3
@@ -138,6 +145,31 @@
                         : 'text-gray-700'}"
                 >
                     Review the generated key points for your pitch deck
+                </p>
+            </div>
+        </div>
+        <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
+            <div
+                class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step ===
+                5
+                    ? 'bg-primary-600 text-white'
+                    : 'bg-gray-100 text-gray-400'}"
+            >
+                <FileOutput size={24} />
+            </div>
+            <div class="flex-1">
+                <h3
+                    class="h5 font-bold hidden md:block text-center lg:text-start {step !==
+                        5 && 'text-gray-600'}"
+                >
+                    Generate PDF
+                </h3>
+                <p
+                    class="hidden lg:block text-sm {step !== 5
+                        ? 'text-gray-500'
+                        : 'text-gray-700'}"
+                >
+                    Download your pitch deck as a PDF
                 </p>
             </div>
         </div>
