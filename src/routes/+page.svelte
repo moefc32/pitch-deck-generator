@@ -50,7 +50,7 @@
         step = 3;
 
         const startTime = Date.now();
-        const result = await axios.post('api/prompt', formData);
+        const result = await axios.post('/api/prompt', formData);
 
         const elapsedTime = Date.now() - startTime;
         const remainingTime = 2000 - elapsedTime;

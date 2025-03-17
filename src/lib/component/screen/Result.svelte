@@ -22,10 +22,7 @@
         URL.revokeObjectURL(documentUrl);
     }
 
-    $: {
-        console.log('Response in Result.svelte:', response);
-        jsonResponse = response ? JSON.stringify(response, null, 2).trim() : {};
-    }
+    $: jsonResponse = response ? JSON.stringify(response, null, 2).trim() : {};
 </script>
 
 <svelte:head>

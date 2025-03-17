@@ -3,7 +3,6 @@
     import { LoaderCircle } from 'lucide-svelte';
     import { jsPDF } from 'jspdf';
     import axios from 'axios';
-    import gemini from '$lib/model/gemini';
 
     export let response;
     export let navigateBack;
@@ -18,7 +17,7 @@
         };
 
         try {
-            const result = await axios.post(`api/document?type=${type}`, {
+            const result = await axios.post(`/api/document?type=${type}`, {
                 language: languages[response.language],
                 data: response.generated,
             });
@@ -64,15 +63,11 @@
     onMount(async () => {
         try {
             // Get AI-powered visual enhancements
-            const enhanceResponse = await gemini.enhance(response.generated);
-            console.log('AI Enhancement Response:', enhanceResponse);
+            const result = await axios.patch('/api/prompt', {
+                slides: response.generated,
+            });
 
-            if (!enhanceResponse) {
-                throw new Error('Failed to get AI enhancements');
-            }
-
-            const enhancements = enhanceResponse.enhancements;
-            console.log('AI Enhancements:', enhancements);
+            const enhancements = result.data.data;
 
             // Create PDF in landscape orientation
             const doc = new jsPDF({
@@ -89,13 +84,10 @@
             };
             const pageWidth = doc.internal.pageSize.width;
             const pageHeight = doc.internal.pageSize.height;
+
             let yPos = margin.top + 40; // Start closer to top
 
-            console.log('Generated slides:', response.generated);
-
             response.generated.forEach((slide, index) => {
-                console.log(`Slide ${index}:`, slide);
-
                 if (index > 0) {
                     doc.addPage();
                     yPos = margin.top + 40;
@@ -135,6 +127,7 @@
                     // Main title
                     doc.setFontSize(enhancement.fontSize);
                     doc.setFont('helvetica', 'bold');
+
                     const titleLines = doc.splitTextToSize(
                         titleText,
                         contentWidth * 0.8,
@@ -155,9 +148,10 @@
                     // Render title with emphasis
                     titleLines.forEach(line => {
                         const words = line.split(' ');
-                        let currentX = 0;
                         const lineWidth = doc.getTextWidth(line);
                         const startX = (pageWidth - lineWidth) / 2;
+
+                        let currentX = 0;
 
                         words.forEach((word, i) => {
                             if (
@@ -169,26 +163,32 @@
                             } else {
                                 doc.setFont('helvetica', 'normal');
                             }
+
                             const wordWidth = doc.getTextWidth(word + ' ');
+
                             doc.text(
                                 word + (i < words.length - 1 ? ' ' : ''),
                                 startX + currentX,
                                 titleY,
                             );
+
                             currentX += wordWidth;
                         });
+
                         titleY += enhancement.fontSize + 12;
                     });
 
                     // Render subtitle if present
                     if (slide.body) {
                         titleY += 40; // Space between title and subtitle
+
                         doc.setFontSize(24);
                         doc.setFont('helvetica', 'normal');
 
                         subtitleLines.forEach(line => {
                             const lineWidth = doc.getTextWidth(line);
                             const subtitleX = (pageWidth - lineWidth) / 2;
+
                             doc.text(line, subtitleX, titleY);
                             titleY += 24;
                         });
@@ -200,6 +200,7 @@
                     // Main title with AI-suggested size
                     doc.setFontSize(enhancement.fontSize);
                     doc.setFont('helvetica', 'bold');
+
                     const titleLines = doc.splitTextToSize(
                         titleText,
                         contentWidth * 0.8,
@@ -221,9 +222,10 @@
                     // Render title with emphasis
                     titleLines.forEach(line => {
                         const words = line.split(' ');
-                        let currentX = 0;
                         const lineWidth = doc.getTextWidth(line);
                         const startX = (pageWidth - lineWidth) / 2;
+
+                        let currentX = 0;
 
                         words.forEach((word, i) => {
                             if (
@@ -235,14 +237,18 @@
                             } else {
                                 doc.setFont('helvetica', 'normal');
                             }
+
                             const wordWidth = doc.getTextWidth(word + ' ');
+
                             doc.text(
                                 word + (i < words.length - 1 ? ' ' : ''),
                                 startX + currentX,
                                 currentY,
                             );
+
                             currentX += wordWidth;
                         });
+
                         currentY += enhancement.fontSize + 12;
                     });
 
@@ -254,6 +260,7 @@
                     contactLines.forEach(line => {
                         const lineWidth = doc.getTextWidth(line);
                         const contactX = (pageWidth - lineWidth) / 2;
+
                         doc.text(line, contactX, currentY);
                         currentY += 24;
                     });
@@ -261,6 +268,7 @@
                     // Content slides with AI-suggested layout and enhancements
                     doc.setFontSize(enhancement.fontSize);
                     doc.setFont('helvetica', 'bold');
+
                     const titleText = slide.title || 'Content';
                     const titleLines = doc.splitTextToSize(
                         titleText,
@@ -270,6 +278,7 @@
                     // Apply title with emphasis
                     titleLines.forEach(line => {
                         const words = line.split(' ');
+
                         let currentX =
                             enhancement.layout === 'centered'
                                 ? (pageWidth - doc.getTextWidth(line)) / 2
@@ -285,15 +294,19 @@
                             } else {
                                 doc.setFont('helvetica', 'normal');
                             }
+
                             doc.text(
                                 word + (i < words.length - 1 ? ' ' : ''),
                                 currentX,
                                 yPos,
                             );
+
                             currentX += doc.getTextWidth(word + ' ');
                         });
+
                         yPos += enhancement.fontSize + 12;
                     });
+
                     yPos += 20;
 
                     // Body content with layout variations
@@ -367,6 +380,7 @@
 
                                 // Reset Y for right column
                                 yPos = startY;
+
                                 const rightX = margin.left + columnWidth + 40;
 
                                 // Right column
@@ -401,11 +415,13 @@
                                         yPos,
                                         bulletIndent,
                                     );
+
                                     yPos += lines.length * 24 + 12; // Reduced spacing
                                 });
                             } else {
                                 // Single column layout
                                 yPos += 20; // Add some space after title
+
                                 bulletPoints.forEach(bullet => {
                                     const cleanBullet = bullet
                                         .replace(/^[•\-]\s*/, '')
@@ -437,12 +453,14 @@
                                         yPos,
                                         bulletIndent,
                                     );
+
                                     yPos += lines.length * 24 + 12; // Reduced spacing
                                 });
                             }
                         } else {
                             // Regular paragraph text
                             yPos += 20; // Add some space after title
+
                             const paragraphLines = doc.splitTextToSize(
                                 slide.body,
                                 contentWidth - margin.left - margin.right,
@@ -467,8 +485,8 @@
             });
 
             pdfUrl = doc.output('datauristring');
-        } catch (error) {
-            console.error('Error generating enhanced PDF:', error);
+        } catch (e) {
+            console.error('Error generating enhanced PDF:', e);
             // Create basic PDF without enhancements as fallback
             const doc = new jsPDF({
                 orientation: 'landscape',
@@ -478,14 +496,18 @@
 
             response.generated.forEach((slide, index) => {
                 if (index > 0) doc.addPage();
+
                 doc.setFontSize(32);
                 doc.text(slide.title || '', 72, 72);
+
                 if (slide.body) {
                     doc.setFontSize(16);
+
                     const lines = doc.splitTextToSize(
                         slide.body,
                         doc.internal.pageSize.width - 144,
                     );
+
                     doc.text(lines, 72, 120);
                 }
             });
@@ -502,7 +524,6 @@
         documentLink.click();
 
         documentLink.remove();
-        URL.revokeObjectURL(documentUrl);
     }
 </script>
 
