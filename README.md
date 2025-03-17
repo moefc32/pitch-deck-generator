@@ -5,10 +5,10 @@
 
 A pitch deck documents generator powered by Gemini AI
 
-![image](https://github.com/user-attachments/assets/74a17803-5f6f-498b-b6aa-1cc2485a222c)
+![image](https://github.com/user-attachments/assets/125e171f-7ae8-4957-93a7-296c464197ac)
 
 ## Features
-- Create pitch deck materials in PowerPoint and Word documents
+- Create pitch deck materials in PowerPoint, Word, and PDF
 - Responsive design for use on both desktop and mobile devices
 - Step by step guided pitch deck creation
 
