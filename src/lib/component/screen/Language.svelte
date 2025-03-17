@@ -6,12 +6,7 @@
     const languages = ['Indonesian', 'English'];
     const tones = ['Professional', 'Formal', 'Casual'];
 
-    let enableNavigateScreen = false;
-
-    $: {
-        enableNavigateScreen =
-            formData.language && formData.tone ? true : false;
-    }
+    $: enableNavigateScreen = formData.language && formData.tone ? true : false;
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->

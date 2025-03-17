@@ -13,7 +13,7 @@
         "@skeletonlabs/skeleton": "^3.1.0",
         "@skeletonlabs/skeleton-svelte": "^1.0.0",
         "@sveltejs/adapter-node": "^5.2.12",
-        "@sveltejs/kit": "^2.19.2",
+        "@sveltejs/kit": "^2.20.0",
         "@sveltejs/vite-plugin-svelte": "^4.0.4",
         "@tailwindcss/vite": "^4.0.14",
         "svelte": "^5.23.1",

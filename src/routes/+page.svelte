@@ -66,7 +66,7 @@
 
 <div class="flex flex-1 flex-col lg:flex-row lg:gap-3">
     <Checklist {step} />
-    <div class="flex flex-1 flex-col gap-3 p-6 text-black">
+    <div class="flex flex-1 flex-col gap-3 p-6">
         <div class="hidden lg:flex flex-col">
             <p class="text-secondary-500 font-bold">
                 Step {step} of {stepLabel.length}

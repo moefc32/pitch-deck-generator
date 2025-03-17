@@ -5,11 +5,7 @@
     const activePage =
         'inline-block mt-[5px] bg-primary-600 rounded-lg w-5 h-[5px]';
 
-    let pageUrl = '';
-
-    $: {
-        pageUrl = $page.url.pathname;
-    }
+    $: pageUrl = $page.url.pathname;
 </script>
 
 <!-- svelte-ignore a11y-interactive-supports-focus -->
@@ -19,7 +15,7 @@
 <!-- svelte-ignore a11y-no-noninteractive-element-to-interactive-role -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <header
-    class="flex flex-row items-center gap-6 pe-4 py-3 bg-slate-50 text-black h-[60px] shadow-xl z-100"
+    class="flex flex-row items-center gap-6 pe-4 py-3 bg-slate-50 h-[60px] shadow-xl z-100"
 >
     <div class="flex flex-1 flex-row justify-center items-center gap-3 mx-4">
         <h1

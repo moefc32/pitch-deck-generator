@@ -4,11 +4,7 @@
     export let formData;
     export let navigateScreen;
 
-    let enableNavigateScreen = false;
-
-    $: {
-        enableNavigateScreen = formData.topic.length ? true : false;
-    }
+    $: enableNavigateScreen = formData.topic.length ? true : false;
 </script>
 
 <!-- svelte-ignore a11y-interactive-supports-focus -->

@@ -15,7 +15,7 @@
 <div
     class="lg:card p-6 lg:w-[360px] h-[100px] lg:h-auto lg:bg-linear-to-b from-secondary-100 to-primary-50"
 >
-    <div class="flex lg:flex-col gap-6 text-black">
+    <div class="flex lg:flex-col gap-6">
         <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
             <div
                 class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
