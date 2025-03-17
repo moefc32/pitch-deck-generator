@@ -2,52 +2,24 @@
     import Highlight from 'svelte-highlight';
     import json from 'svelte-highlight/languages/json';
     import github from 'svelte-highlight/styles/github-dark-dimmed';
-    import { LoaderCircle } from 'lucide-svelte';
-    import axios from 'axios';
 
-    export let step;
     export let response;
+    export let navigateBack;
     export let navigateScreen;
 
     let jsonResponse;
 
-    async function exportDocument(type) {
-        const languages = {
-            Indonesian: 'id-ID',
-            English: 'en-US',
-        };
+    async function exportJson() {
+        const blob = new Blob([jsonResponse], { type: 'application/json' });
+        const documentUrl = URL.createObjectURL(blob);
+        const documentLink = document.createElement('a');
 
-        try {
-            const result = await axios.post(`api/document?type=${type}`, {
-                language: languages[response.language],
-                data: response.generated,
-            });
+        documentLink.href = documentUrl;
+        documentLink.download = 'pitch-deck.json';
+        documentLink.click();
 
-            const byteCharacters = atob(result.data.data.byte);
-            const byteNumbers = Array.from(byteCharacters, char =>
-                char.charCodeAt(0),
-            );
-            const byteArray = new Uint8Array(byteNumbers);
-
-            const documentBlob = new Blob([byteArray], {
-                type:
-                    type === 'pptx'
-                        ? 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
-                        : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-            });
-
-            const documentUrl = URL.createObjectURL(documentBlob);
-            const documentLink = document.createElement('a');
-
-            documentLink.href = documentUrl;
-            documentLink.download = `${result.data.data.name}.${type}`;
-            documentLink.click();
-
-            documentLink.remove();
-            URL.revokeObjectURL(documentUrl);
-        } catch (e) {
-            console.error(e);
-        }
+        documentLink.remove();
+        URL.revokeObjectURL(documentUrl);
     }
 
     $: {
@@ -60,47 +32,38 @@
     {@html github}
 </svelte:head>
 
-{#if step === 3}
-    <div
-        class="flex flex-1 flex-col justify-center items-center self-stretch gap-3 mb-16 text-primary-600"
-    >
-        <LoaderCircle size={100} style="animation: spin 1s linear infinite" />
-        <div class="text-gray-700">Generating content, please wait...</div>
-    </div>
-{:else}
-    <div class="flex flex-1 flex-col self-stretch w-full">
-        <div class="mb-3">Data generated successfully.</div>
-        <Highlight
-            language={json}
-            class="p-0 text-sm leading-tight break-words whitespace-pre-wrap max-h-[calc(100dvh-380px)] rounded-lg overflow-y-auto"
-            code={jsonResponse}
-        ></Highlight>
-    </div>
+<div class="flex flex-1 flex-col self-stretch w-full">
+    <div class="mb-3">Data generated successfully.</div>
+    <Highlight
+        language={json}
+        class="p-0 text-sm leading-tight break-words whitespace-pre-wrap max-h-[calc(100dvh-380px)] rounded-lg overflow-y-auto"
+        code={jsonResponse}
+    ></Highlight>
+</div>
 
-    <div class="flex flex-col self-stretch lg:flex-row gap-2 lg:gap-3 mt-6">
-        <button
-            type="button"
-            class="btn bg-[#d0522a] text-white"
-            title="Export generated content as PowerPoint file"
-            on:click={() => exportDocument('pptx')}
-        >
-            Export .pptx
-        </button>
-        <button
-            type="button"
-            class="btn bg-[#2b579a] text-white"
-            title="Export generated content as Word file"
-            on:click={() => exportDocument('docx')}
-        >
-            Export .docx
-        </button>
-        <button
-            type="button"
-            class="btn preset-filled lg:ms-auto"
-            title="Generate PDF version of your pitch deck"
-            on:click={() => navigateScreen()}
-        >
-            Generate PDF
-        </button>
-    </div>
-{/if}
+<div class="flex flex-col self-stretch lg:flex-row gap-2 lg:gap-3 mt-6">
+    <button
+        type="button"
+        class="btn preset-filled-secondary-500"
+        title="Proceed to the next step"
+        on:click={() => navigateScreen()}
+    >
+        Next Step
+    </button>
+    <button
+        type="button"
+        class="btn bg-[#3e6eaf] text-white"
+        title="Export generated data as JSON file"
+        on:click={() => exportJson()}
+    >
+        Export .json
+    </button>
+    <button
+        type="button"
+        class="btn preset-filled lg:ms-auto"
+        title="Back to previous step"
+        on:click={() => navigateBack()}
+    >
+        Back
+    </button>
+</div>

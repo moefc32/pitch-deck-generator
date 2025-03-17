@@ -6,16 +6,16 @@
         LoaderCircle,
         FileJson,
         ClipboardCheck,
-        FileOutput,
+        FileDown,
     } from 'lucide-svelte';
 
     export let step;
 </script>
 
 <div
-    class="lg:card p-6 lg:w-[360px] lg:bg-linear-to-b from-secondary-100 to-primary-50"
+    class="lg:card p-6 lg:w-[360px] h-[100px] lg:h-auto lg:bg-linear-to-b from-secondary-100 to-primary-50"
 >
-    <div class="flex lg:flex-col gap-6">
+    <div class="flex lg:flex-col gap-6 text-black">
         <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
             <div
                 class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
@@ -33,10 +33,12 @@
             </div>
             <div class="flex-1">
                 <h3
-                    class="h5 font-bold hidden md:block text-center lg:text-start {step !==
-                        1 && 'text-gray-600'}"
+                    class="h5 font-bold text-center lg:text-start {step !== 1 &&
+                        'text-gray-500'}"
                 >
-                    Input Idea
+                    <span class="hidden md:block text-xs lg:text-lg">
+                        Input Idea
+                    </span>
                 </h3>
                 <p
                     class="hidden lg:block text-sm {step !== 1
@@ -65,10 +67,15 @@
             </div>
             <div class="flex-1">
                 <h3
-                    class="h5 font-bold hidden md:block text-center lg:text-start {step !==
-                        2 && 'text-gray-600'}"
+                    class="h5 font-bold text-center lg:text-start {step !== 2 &&
+                        'text-gray-500'}"
                 >
-                    Select Language
+                    <span class="hidden lg:block text-xs lg:text-lg">
+                        Select Language
+                    </span>
+                    <span class="hidden md:block lg:hidden text-xs lg:text-lg">
+                        Language
+                    </span>
                 </h3>
                 <p
                     class="hidden lg:block text-sm {step !== 2
@@ -101,10 +108,15 @@
             </div>
             <div class="flex-1">
                 <h3
-                    class="h5 font-bold hidden md:block text-center lg:text-start {step !==
-                        3 && 'text-gray-600'}"
+                    class="h5 font-bold text-center lg:text-start {step !== 3 &&
+                        'text-gray-500'}"
                 >
-                    Generating Data
+                    <span class="hidden lg:block text-xs lg:text-lg">
+                        Generating Content
+                    </span>
+                    <span class="hidden md:block lg:hidden text-xs lg:text-lg">
+                        Generating
+                    </span>
                 </h3>
                 <p
                     class="hidden lg:block text-sm {step !== 3
@@ -134,10 +146,15 @@
             </div>
             <div class="flex-1">
                 <h3
-                    class="h5 font-bold hidden md:block text-center lg:text-start {step !==
-                        4 && 'text-gray-600'}"
+                    class="h5 font-bold text-center lg:text-start {step !== 4 &&
+                        'text-gray-500'}"
                 >
-                    Result Summary
+                    <span class="hidden lg:block text-xs lg:text-lg">
+                        Result Summary
+                    </span>
+                    <span class="hidden md:block lg:hidden text-xs lg:text-lg">
+                        Summary
+                    </span>
                 </h3>
                 <p
                     class="hidden lg:block text-sm {step !== 4
@@ -155,26 +172,31 @@
                     ? 'bg-primary-600 text-white'
                     : 'bg-gray-100 text-gray-400'}"
             >
-                <FileOutput size={24} />
+                <FileDown size={24} />
             </div>
             <div class="flex-1">
                 <h3
-                    class="h5 font-bold hidden md:block text-center lg:text-start {step !==
-                        5 && 'text-gray-600'}"
+                    class="h5 font-bold text-center lg:text-start {step !== 5 &&
+                        'text-gray-500'}"
                 >
-                    Generate PDF
+                    <span class="hidden lg:block text-xs lg:text-lg">
+                        Download Files
+                    </span>
+                    <span class="hidden md:block lg:hidden text-xs lg:text-lg">
+                        Download
+                    </span>
                 </h3>
                 <p
                     class="hidden lg:block text-sm {step !== 5
                         ? 'text-gray-500'
                         : 'text-gray-700'}"
                 >
-                    Download your pitch deck as a PDF
+                    Download pitch deck in your preferred format
                 </p>
             </div>
         </div>
     </div>
-    <div class="lg:hidden -mt-12 md:-mt-16 mx-auto w-[calc(100vw*.667)]">
-        <hr class="h-[2px] bg-gray-300 border-0!" />
+    <div class="lg:hidden -mt-12 md:-mt-14 mx-auto w-[calc(100vw*.7)]">
+        <hr class="h-[4px] md:h-[2px] bg-gray-300 border-0!" />
     </div>
 </div>

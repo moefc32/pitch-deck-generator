@@ -2,28 +2,11 @@
     import '../app.css';
     import { page } from '$app/stores';
     import { ToastProvider } from '@skeletonlabs/skeleton-svelte';
-    import {
-        computePosition,
-        autoUpdate,
-        offset,
-        shift,
-        flip,
-        arrow,
-    } from '@floating-ui/dom';
 
     import Header from '$lib/component/Header.svelte';
     import { initializeStores, storePopup } from '$lib/stores';
 
-    initializeStores();
-    storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
-
-    const leanRoutes = ['/about-us'];
-
-    let isLeanRoutes;
-
-    $: {
-        isLeanRoutes = leanRoutes.includes($page.url.pathname);
-    }
+    let { children } = $props();
 </script>
 
 <svelte:head>
@@ -34,18 +17,15 @@
 
 {#if $page.status >= 300}
     <div class="flex flex-1 flex-col gap-3 p-5">
-        <slot />
+        {@render children()}
     </div>
 {:else}
     <Header />
     <div class="flex flex-1 flex-row">
-        <div
-            class="flex flex-1 flex-col gap-3 mx-auto p-5 {isLeanRoutes &&
-                'max-w-screen-md'}"
-        >
-            <slot />
+        <div class="flex flex-1 flex-col gap-3 mx-auto p-5">
+            <ToastProvider>
+                {@render children()}
+            </ToastProvider>
         </div>
     </div>
 {/if}
-
-<ToastProvider position="br" />

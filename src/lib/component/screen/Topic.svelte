@@ -14,24 +14,11 @@
 <!-- svelte-ignore a11y-interactive-supports-focus -->
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div class="flex flex-1 flex-col justify-center items-center self-stretch">
-    <label class="label mb-32 w-full max-w-[1200px]">
-        <div class="flex items-center pt-2">
-            <textarea
-                class="input ps-5 pe-12 py-3 rounded-lg min-h-[400px]"
-                bind:value={formData.topic}
-            ></textarea>
-            {#if formData.topic.length}
-                <div
-                    role="button"
-                    class="-ms-9 z-10"
-                    title="Clear all text"
-                    on:click={() => (formData.topic = '')}
-                >
-                    <X size={24} />
-                </div>
-            {/if}
-        </div>
-    </label>
+    <textarea
+        class="flex-1 input my-6 ps-5 pe-12 py-3 rounded-lg"
+        placeholder="Explain your pitch deck topic or ideas in detail..."
+        bind:value={formData.topic}
+    ></textarea>
 </div>
 
 <div class="flex flex-col self-stretch lg:flex-row gap-2 lg:gap-3 mt-6">
