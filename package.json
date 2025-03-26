@@ -15,10 +15,10 @@
         "@sveltejs/adapter-node": "^5.2.12",
         "@sveltejs/kit": "^2.20.2",
         "@sveltejs/vite-plugin-svelte": "^4.0.4",
-        "@tailwindcss/vite": "^4.0.15",
+        "@tailwindcss/vite": "^4.0.17",
         "svelte": "^5.25.3",
         "svelte-highlight": "^7.8.2",
-        "tailwindcss": "^4.0.15",
+        "tailwindcss": "^4.0.17",
         "vite": "^5.4.15"
     },
     "dependencies": {

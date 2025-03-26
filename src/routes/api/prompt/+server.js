@@ -54,11 +54,11 @@ export async function POST({ request }) {
                 },
             });
         } catch (e) {
-            console.error('Error parsing JSON:', e);
+            console.error(e);
             throw error(500, 'Invalid response format');
         }
     } catch (e) {
-        console.error('Error generating content:', e);
+        console.error(e);
         throw error(500, e.message);
     }
 }
@@ -85,11 +85,11 @@ export async function PATCH({ request }) {
                 data: result.slides,
             });
         } catch (e) {
-            console.error('Error parsing JSON:', e);
+            console.error(e);
             throw error(500, 'Invalid response format');
         }
     } catch (e) {
-        console.error('Error enhancing slides:', e);
+        console.error(e);
         throw error(500, e.message);
     }
 }

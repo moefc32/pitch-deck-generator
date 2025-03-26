@@ -486,7 +486,7 @@
 
             pdfUrl = doc.output('datauristring');
         } catch (e) {
-            console.error('Error generating enhanced PDF:', e);
+            console.error(e);
             // Create basic PDF without enhancements as fallback
             const doc = new jsPDF({
                 orientation: 'landscape',
