@@ -20,7 +20,7 @@
     <div class="flex flex-1 flex-row justify-center items-center gap-3 mx-4">
         <h1
             role="button"
-            class="flex items-center gap-2 me-auto ps-11 bg-[url('/favicon.svg')] bg-[5px_center] bg-no-repeat bg-[length:30px] text-xl font-semibold h-[50px]"
+            class="flex items-center gap-2 me-auto ps-11 bg-[url('/favicon.svg')] bg-[5px_center] bg-no-repeat bg-contain text-xl font-semibold h-[35px]"
             on:click={() => goto('/')}
         >
             {import.meta.env.VITE_APP_NAME}
