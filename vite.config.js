@@ -3,7 +3,9 @@ import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 import dotenv from 'dotenv';
 
-dotenv.config();
+dotenv.config({
+    quiet: true,
+});
 
 export default defineConfig({
     plugins: [
