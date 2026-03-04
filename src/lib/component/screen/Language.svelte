@@ -21,8 +21,9 @@
         {#each languages as item, i}
             <div
                 role="button"
-                class="hover:card flex flex-1 flex-col justify-center items-center gap-3 px-6 py-12 transition duration-250 {formData.language ===
-                    item && 'card bg-gray-200'}"
+                class="flex flex-1 flex-col justify-center items-center gap-3 px-6 py-12 {formData.language ===
+                    item &&
+                    'card bg-gray-300'} hover:bg-gray-200 transition duration-250 cursor-pointer"
                 on:click={() => (formData.language = item)}
             >
                 <img
@@ -38,7 +39,10 @@
     <div class="flex flex-col lg:flex-row lg:items-center gap-1 lg:gap-4">
         Language tone :
         {#each tones as item, i}
-            <label role="button" class="flex items-center space-x-2">
+            <label
+                role="button"
+                class="flex items-center space-x-2 cursor-pointer"
+            >
                 <input
                     type="radio"
                     class="radio"
@@ -54,7 +58,7 @@
 <div class="flex flex-col self-stretch lg:flex-row gap-2 lg:gap-3 mt-6">
     <button
         type="button"
-        class="btn preset-filled-secondary-500"
+        class="btn btn-primary"
         title="Proceed to the next step"
         disabled={!enableNavigateScreen}
         on:click={() => handleSubmit()}
@@ -63,7 +67,7 @@
     </button>
     <button
         type="button"
-        class="btn preset-filled lg:ms-auto"
+        class="btn btn-soft lg:ms-auto"
         title="Back to previous step"
         on:click={() => navigateBack()}
     >

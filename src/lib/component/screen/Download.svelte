@@ -579,7 +579,7 @@
     </button>
     <button
         type="button"
-        class="btn preset-filled-primary-500 text-white lg:ms-auto"
+        class="btn btn-primary lg:ms-auto"
         title="Create new pitch deck"
         on:click={() => navigateScreen()}
     >
@@ -587,7 +587,7 @@
     </button>
     <button
         type="button"
-        class="btn preset-filled"
+        class="btn btn-soft"
         title="Back to previous step"
         on:click={() => navigateBack()}
     >

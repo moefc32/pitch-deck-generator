@@ -68,10 +68,10 @@
     <Checklist {step} />
     <div class="flex flex-1 flex-col gap-3 p-6">
         <div class="hidden lg:flex flex-col">
-            <p class="text-secondary-500 font-bold">
+            <p class="text-primary font-bold">
                 Step {step} of {stepLabel.length}
             </p>
-            <h2 class="section-title mt-2 mb-4 h2 md:h3">
+            <h2 class="section-title mt-2 mb-4 text-xl md:text-2xl">
                 {stepLabel[step - 1]}
             </h2>
         </div>

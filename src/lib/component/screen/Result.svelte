@@ -41,7 +41,7 @@
 <div class="flex flex-col self-stretch lg:flex-row gap-2 lg:gap-3 mt-6">
     <button
         type="button"
-        class="btn preset-filled-secondary-500"
+        class="btn btn-primary"
         title="Proceed to the next step"
         on:click={() => navigateScreen()}
     >
@@ -57,7 +57,7 @@
     </button>
     <button
         type="button"
-        class="btn preset-filled lg:ms-auto"
+        class="btn btn-soft lg:ms-auto"
         title="Back to previous step"
         on:click={() => navigateBack()}
     >

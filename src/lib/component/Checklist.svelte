@@ -13,14 +13,14 @@
 </script>
 
 <div
-    class="lg:card p-6 lg:w-[360px] h-[100px] lg:h-auto lg:bg-linear-to-b from-secondary-100 to-primary-50"
+    class="lg:card lg:card-bordered p-6 lg:w-[360px] h-[100px] lg:h-auto lg:bg-gradient-to-b lg:from-primary/30 lg:to-success/20"
 >
     <div class="flex lg:flex-col gap-6">
         <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
             <div
                 class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
                 1
-                    ? 'bg-primary-600 text-white'
+                    ? 'bg-primary/35 text-white'
                     : step === 1
                       ? 'bg-white'
                       : 'bg-gray-100 text-gray-400'}"
@@ -54,7 +54,7 @@
             <div
                 class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
                 2
-                    ? 'bg-primary-600 text-white'
+                    ? 'bg-primary/35 text-white'
                     : step === 2
                       ? 'bg-white'
                       : 'bg-gray-100 text-gray-400'}"
@@ -90,7 +90,7 @@
             <div
                 class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
                 3
-                    ? 'bg-primary-600 text-white'
+                    ? 'bg-primary/35 text-white'
                     : step === 3
                       ? 'bg-white'
                       : 'bg-gray-100 text-gray-400'}"
@@ -131,7 +131,7 @@
             <div
                 class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
                 4
-                    ? 'bg-primary-600 text-white'
+                    ? 'bg-primary/35 text-white'
                     : step === 4 || step === 5
                       ? 'bg-primary-600 text-white'
                       : 'bg-gray-100 text-gray-400'}"
@@ -169,7 +169,7 @@
             <div
                 class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step ===
                 5
-                    ? 'bg-primary-600 text-white'
+                    ? 'bg-primary/35 text-white'
                     : 'bg-gray-100 text-gray-400'}"
             >
                 <FileDown size={24} />

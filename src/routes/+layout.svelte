@@ -1,9 +1,7 @@
 <script>
     import '../app.css';
     import { page } from '$app/stores';
-    import { Toaster } from '@skeletonlabs/skeleton-svelte';
 
-    import toaster from '$lib/toaster';
     import Header from '$lib/component/Header.svelte';
 
     let { children } = $props();
@@ -24,7 +22,6 @@
     <div class="flex flex-1 flex-row">
         <div class="flex flex-1 flex-col gap-3 mx-auto p-5">
             {@render children()}
-            <Toaster {toaster}></Toaster>
         </div>
     </div>
 {/if}

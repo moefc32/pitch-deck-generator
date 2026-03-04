@@ -15,7 +15,7 @@ A pitch deck documents generator powered by Gemini AI
 ## Stack Used
 - [SvelteKit](https://svelte.dev/)
 - [Tailwind](https://tailwindcss.com/)
-- [Skeleton UI](https://www.skeleton.dev/)
+- [daisyUI](https://daisyui.com/)
 - [Google Gemini](https://gemini.google.com/)
 
 ## Local Preview
