@@ -1,10 +1,10 @@
 <script>
     import { X } from 'lucide-svelte';
 
-    export let formData;
+    export let idea;
     export let navigateScreen;
 
-    $: enableNavigateScreen = formData.topic.length ? true : false;
+    $: enableNavigateScreen = idea.topic.length ? true : false;
 </script>
 
 <!-- svelte-ignore a11y-interactive-supports-focus -->
@@ -13,7 +13,7 @@
     <textarea
         class="flex-1 input my-6 ps-5 pe-12 py-3 rounded-lg w-full"
         placeholder="Explain your pitch deck topic or ideas in detail..."
-        bind:value={formData.topic}
+        bind:value={idea.topic}
     ></textarea>
 </div>
 

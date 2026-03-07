@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import { LoaderCircle } from 'lucide-svelte';
     import { jsPDF } from 'jspdf';
-    import axios from 'axios';
+    import ky from 'ky';
 
     export let response;
     export let navigateBack;
@@ -17,10 +17,15 @@
         };
 
         try {
-            const result = await axios.post(`/api/document?type=${type}`, {
-                language: languages[response.language],
-                data: response.generated,
-            });
+            const result = await ky
+                .post('/api/document', {
+                    searchParams: { type },
+                    json: {
+                        language: languages[response.language],
+                        data: response.generated,
+                    },
+                })
+                .json();
 
             const byteCharacters = atob(result.data.data.byte);
             const byteNumbers = Array.from(byteCharacters, char =>
@@ -63,9 +68,14 @@
     onMount(async () => {
         try {
             // Get AI-powered visual enhancements
-            const result = await axios.patch('/api/prompt', {
-                slides: response.generated,
-            });
+            const result = await ky
+                .patch('/api/prompt', {
+                    json: {
+                        slides: response.generated,
+                    },
+                    timeout: 60 * 1000,
+                })
+                .json();
 
             const enhancements = result.data.data;
 

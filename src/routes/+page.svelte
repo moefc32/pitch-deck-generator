@@ -1,6 +1,6 @@
 <script>
     import { LoaderCircle } from 'lucide-svelte';
-    import axios from 'axios';
+    import ky from 'ky';
 
     import Checklist from '$lib/component/Checklist.svelte';
     import TopicScreen from '$lib/component/screen/Topic.svelte';
@@ -17,7 +17,7 @@
     ];
 
     let step = 1;
-    let formData = {
+    let idea = {
         topic: '',
         language: '',
         tone: '',
@@ -29,7 +29,7 @@
         if (step === 2) return handleSubmit();
         if (step === 4) return step++;
 
-        formData = {
+        idea = {
             ...{
                 topic: '',
                 language: '',
@@ -49,18 +49,30 @@
     async function handleSubmit() {
         step = 3;
 
-        const startTime = Date.now();
-        const result = await axios.post('/api/prompt', formData);
+        try {
+            const startTime = Date.now();
+            const result = await ky
+                .post('/api/prompt', {
+                    json: idea,
+                    timeout: 60 * 1000,
+                })
+                .json();
 
-        const elapsedTime = Date.now() - startTime;
-        const remainingTime = 2000 - elapsedTime;
+            const elapsedTime = Date.now() - startTime;
+            const remainingTime = 2000 - elapsedTime;
 
-        if (remainingTime > 0) {
-            await new Promise(resolve => setTimeout(resolve, remainingTime));
+            if (remainingTime > 0) {
+                await new Promise(resolve =>
+                    setTimeout(resolve, remainingTime),
+                );
+            }
+
+            response = result.data;
+            step = 4;
+        } catch (e) {
+            console.error(e);
+            step = 2;
         }
-
-        response = result.data.data;
-        step = 4;
     }
 </script>
 
@@ -79,9 +91,9 @@
             class="flex flex-1 flex-col justify-center items-center leading-7"
         >
             {#if step === 1}
-                <TopicScreen {formData} {navigateScreen} />
+                <TopicScreen {idea} {navigateScreen} />
             {:else if step === 2}
-                <LanguageScreen {formData} {navigateBack} {handleSubmit} />
+                <LanguageScreen {idea} {navigateBack} {handleSubmit} />
             {:else if step === 3}
                 <div
                     class="flex flex-1 flex-col justify-center items-center self-stretch gap-3 mb-16 text-primary-600"

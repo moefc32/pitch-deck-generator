@@ -24,10 +24,10 @@
         "@fontsource-variable/plus-jakarta-sans": "^5.2.8",
         "@fontsource/alata": "^5.2.8",
         "@google/generative-ai": "^0.17.2",
-        "axios": "^1.13.6",
         "docx": "^9.6.0",
         "dotenv": "^16.6.1",
         "jspdf": "^3.0.4",
+        "ky": "^1.14.3",
         "lucide-svelte": "^0.563.0",
         "pptxgenjs": "^3.12.0"
     },

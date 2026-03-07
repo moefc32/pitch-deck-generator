@@ -1,12 +1,12 @@
 <script>
-    export let formData;
+    export let idea;
     export let navigateBack;
     export let handleSubmit;
 
     const languages = ['Indonesian', 'English'];
     const tones = ['Professional', 'Formal', 'Casual'];
 
-    $: enableNavigateScreen = formData.language && formData.tone ? true : false;
+    $: enableNavigateScreen = idea.language && idea.tone ? true : false;
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -21,10 +21,10 @@
         {#each languages as item, i}
             <div
                 role="button"
-                class="flex flex-1 flex-col justify-center items-center gap-3 px-6 py-12 {formData.language ===
+                class="flex flex-1 flex-col justify-center items-center gap-3 px-6 py-12 {idea.language ===
                     item &&
                     'card bg-gray-300'} hover:bg-gray-200 transition duration-250 cursor-pointer"
-                on:click={() => (formData.language = item)}
+                on:click={() => (idea.language = item)}
             >
                 <img
                     src={`language/${item}.svg`}
@@ -47,7 +47,7 @@
                     type="radio"
                     class="radio"
                     value={item}
-                    bind:group={formData.tone}
+                    bind:group={idea.tone}
                 />
                 <p>{item}</p>
             </label>
