@@ -17,10 +17,10 @@
 <style>
     div {
         display: flex;
+        flex-grow: 1;
         justify-content: center;
         align-items: center;
         width: 100%;
-        min-height: 100dvh;
         padding: 50px;
     }
 

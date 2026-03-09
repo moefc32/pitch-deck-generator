@@ -13,15 +13,9 @@
     </title>
 </svelte:head>
 
-{#if $page.status >= 300}
-    <div class="flex flex-1 flex-col gap-3 p-5">
+<Header />
+<div class="flex flex-1 flex-row">
+    <div class="flex flex-1 flex-col gap-3 mx-auto p-5">
         {@render children()}
     </div>
-{:else}
-    <Header />
-    <div class="flex flex-1 flex-row">
-        <div class="flex flex-1 flex-col gap-3 mx-auto p-5">
-            {@render children()}
-        </div>
-    </div>
-{/if}
+</div>
