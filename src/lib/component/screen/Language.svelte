@@ -3,7 +3,16 @@
     export let navigateBack;
     export let handleSubmit;
 
-    const languages = ['Indonesian', 'English'];
+    const languages = [
+        {
+            label: 'Indonesian',
+            short: 'id',
+        },
+        {
+            label: 'English',
+            short: 'en',
+        },
+    ];
     const tones = ['Professional', 'Formal', 'Casual'];
 
     $: enableNavigateScreen = idea.language && idea.tone ? true : false;
@@ -22,16 +31,16 @@
             <div
                 role="button"
                 class="flex flex-1 flex-col justify-center items-center gap-3 px-6 py-12 {idea.language ===
-                    item &&
+                    item.label &&
                     'card bg-gray-300'} hover:bg-gray-200 transition duration-250 cursor-pointer"
-                on:click={() => (idea.language = item)}
+                on:click={() => (idea.language = item.label)}
             >
                 <img
-                    src={`language/${item}.svg`}
+                    src={`/lang/${item.short}.svg`}
                     alt={item + ' flag'}
                     class="block w-[80%] max-w-[200px] aspect-4/3 shadow-lg"
                 />
-                <span class="text-lg">{item}</span>
+                <span class="text-lg">{item.label}</span>
             </div>
         {/each}
     </div>

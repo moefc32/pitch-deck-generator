@@ -15,7 +15,7 @@
         "@sveltejs/vite-plugin-svelte": "^5.1.1",
         "@tailwindcss/vite": "^4.2.1",
         "daisyui": "^5.5.19",
-        "svelte": "^5.53.8",
+        "svelte": "^5.53.9",
         "svelte-highlight": "^7.9.0",
         "tailwindcss": "^4.2.1",
         "vite": "^6.4.1"
@@ -24,7 +24,7 @@
         "@fontsource-variable/plus-jakarta-sans": "^5.2.8",
         "@fontsource/alata": "^5.2.8",
         "@google/generative-ai": "^0.17.2",
-        "docx": "^9.6.0",
+        "docx": "^9.6.1",
         "dotenv": "^16.6.1",
         "jspdf": "^3.0.4",
         "ky": "^1.14.3",
