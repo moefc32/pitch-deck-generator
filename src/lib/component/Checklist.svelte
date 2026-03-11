@@ -3,7 +3,6 @@
         Check,
         Lightbulb,
         Languages,
-        LoaderCircle,
         FileJson,
         ClipboardCheck,
         FileDown,
@@ -98,10 +97,7 @@
                 {#if step < 3}
                     <FileJson size={24} />
                 {:else if step === 3}
-                    <LoaderCircle
-                        size={28}
-                        style="animation: spin 1s linear infinite"
-                    />
+                    <span class="loading loading-spinner loading-lg"></span>
                 {:else}
                     <Check size={24} />
                 {/if}
@@ -132,8 +128,8 @@
                 class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
                 4
                     ? 'bg-primary/35 text-white'
-                    : step === 4 || step === 5
-                      ? 'bg-primary-600 text-white'
+                    : step === 4
+                      ? 'bg-white'
                       : 'bg-gray-100 text-gray-400'}"
             >
                 {#if step === 4}

@@ -1,5 +1,4 @@
 <script>
-    import { LoaderCircle } from 'lucide-svelte';
     import ky from 'ky';
 
     import Checklist from '$lib/component/Checklist.svelte';
@@ -98,10 +97,10 @@
                 <div
                     class="flex flex-1 flex-col justify-center items-center self-stretch gap-3 mb-16 text-primary-600"
                 >
-                    <LoaderCircle
-                        size={100}
-                        style="animation: spin 1s linear infinite"
-                    />
+                    <span
+                        class="loading loading-spinner text-primary w-[100px]"
+                    >
+                    </span>
                     <div class="text-gray-700">
                         Generating content, please wait...
                     </div>

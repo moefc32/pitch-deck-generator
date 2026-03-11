@@ -1,6 +1,5 @@
 <script>
     import { onMount } from 'svelte';
-    import { LoaderCircle } from 'lucide-svelte';
     import { jsPDF } from 'jspdf';
     import ky from 'ky';
 
@@ -549,10 +548,7 @@
         <div
             class="flex flex-col justify-center items-center self-stretch gap-3 mt-6 text-primary-600 h-screen max-h-[calc(100dvh-380px)]"
         >
-            <LoaderCircle
-                size={100}
-                style="animation: spin 1s linear infinite"
-            />
+            <span class="loading loading-spinner text-primary w-[100px]"></span>
             <div class="text-gray-700">Generating PDF, please wait...</div>
         </div>
     {/if}
