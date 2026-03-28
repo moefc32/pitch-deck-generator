@@ -12,12 +12,12 @@
 </script>
 
 <div
-    class="lg:card lg:card-bordered p-6 lg:w-[360px] h-[100px] lg:h-auto lg:bg-gradient-to-b lg:from-primary/30 lg:to-success/20"
+    class="lg:card lg:card-bordered p-6 lg:w-90 h-25 lg:h-auto lg:bg-gradient-to-b lg:from-primary/30 lg:to-success/20"
 >
     <div class="flex lg:flex-col gap-6">
         <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
             <div
-                class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
+                class="flex self-start justify-center items-center mx-auto rounded-full w-18 md:w-12 aspect-square shadow {step >
                 1
                     ? 'bg-primary/35 text-white'
                     : step === 1
@@ -51,7 +51,7 @@
         </div>
         <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
             <div
-                class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
+                class="flex self-start justify-center items-center mx-auto rounded-full w-18 md:w-12 aspect-square shadow {step >
                 2
                     ? 'bg-primary/35 text-white'
                     : step === 2
@@ -87,7 +87,7 @@
         </div>
         <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
             <div
-                class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
+                class="flex self-start justify-center items-center mx-auto rounded-full w-18 md:w-12 aspect-square shadow {step >
                 3
                     ? 'bg-primary/35 text-white'
                     : step === 3
@@ -125,7 +125,7 @@
         </div>
         <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
             <div
-                class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step >
+                class="flex self-start justify-center items-center mx-auto rounded-full w-18 md:w-12 aspect-square shadow {step >
                 4
                     ? 'bg-primary/35 text-white'
                     : step === 4
@@ -163,7 +163,7 @@
         </div>
         <div class="checkpoint flex flex-1 flex-col lg:flex-row gap-3 relative">
             <div
-                class="flex justify-center items-center mx-auto rounded-full w-[70px] md:w-[45px] h-[70px] md:h-[45px] shadow {step ===
+                class="flex self-start justify-center items-center mx-auto rounded-full w-18 md:w-12 aspect-square shadow {step >
                 5
                     ? 'bg-primary/35 text-white'
                     : 'bg-gray-100 text-gray-400'}"
@@ -193,6 +193,6 @@
         </div>
     </div>
     <div class="lg:hidden -mt-12 md:-mt-14 mx-auto w-[calc(100vw*.7)]">
-        <hr class="h-[4px] md:h-[2px] bg-gray-300 border-0!" />
+        <hr class="h-1 bg-gray-300 border-0!" />
     </div>
 </div>

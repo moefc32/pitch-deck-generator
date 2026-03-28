@@ -98,7 +98,7 @@
                     class="flex flex-1 flex-col justify-center items-center self-stretch gap-3 mb-16 text-primary-600"
                 >
                     <span
-                        class="loading loading-spinner text-primary w-[100px]"
+                        class="loading loading-spinner text-primary w-25"
                     >
                     </span>
                     <div class="text-gray-700">

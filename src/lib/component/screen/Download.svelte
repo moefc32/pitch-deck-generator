@@ -548,7 +548,7 @@
         <div
             class="flex flex-col justify-center items-center self-stretch gap-3 mt-6 text-primary-600 h-screen max-h-[calc(100dvh-380px)]"
         >
-            <span class="loading loading-spinner text-primary w-[100px]"></span>
+            <span class="loading loading-spinner text-primary w-25"></span>
             <div class="text-gray-700">Generating PDF, please wait...</div>
         </div>
     {/if}

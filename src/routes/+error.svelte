@@ -89,12 +89,10 @@
     </title>
 </svelte:head>
 
-<div
-    class="flex flex-1 flex-col justify-center items-center gap-6 w-full p-[50px]"
->
+<div class="flex flex-1 flex-col justify-center items-center gap-6 w-full p-12">
     <div
         role="img"
-        class="bg-black dark:bg-base-content [mask-size:contain] [mask-repeat:no-repeat] w-[200px] aspect-29/8"
+        class="bg-black dark:bg-base-content [mask-size:contain] [mask-repeat:no-repeat] w-50 aspect-29/8"
         style:mask-image="url('{contents.icon}')"
     ></div>
     <div class="flex flex-col gap-6 text-center max-w-2xl">
