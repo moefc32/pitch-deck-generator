@@ -32,19 +32,19 @@
                 role="button"
                 class="flex flex-1 flex-col justify-center items-center gap-3 px-6 py-12 {idea.language ===
                     item.label &&
-                    'card bg-gray-300'} hover:bg-gray-200 transition duration-250 cursor-pointer"
+                    'card bg-gray-300'} hover:bg-gray-200 rounded-lg transition duration-250 cursor-pointer"
                 on:click={() => (idea.language = item.label)}
             >
                 <img
                     src={`/lang/${item.short}.svg`}
                     alt={item + ' flag'}
-                    class="block w-[80%] max-w-[200px] aspect-4/3 shadow-lg"
+                    class="block w-[80%] max-w-50 aspect-4/3 shadow-lg"
                 />
                 <span class="text-lg">{item.label}</span>
             </div>
         {/each}
     </div>
-    <hr class="my-3 w-[50px]" />
+    <hr class="my-3 w-12" />
     <div class="flex flex-col lg:flex-row lg:items-center gap-1 lg:gap-4">
         Language tone :
         {#each tones as item, i}
