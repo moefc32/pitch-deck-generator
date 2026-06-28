@@ -1,0 +1,5 @@
+allowBuilds:
+  core-js: true
+  esbuild: true
+minimumReleaseAgeExclude:
+  - svelte-highlight@7.13.0
