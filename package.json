@@ -11,20 +11,21 @@
     },
     "devDependencies": {
         "@sveltejs/adapter-node": "^5.5.7",
-        "@sveltejs/kit": "^2.70.1",
+        "@sveltejs/kit": "^2.70.3",
         "@sveltejs/vite-plugin-svelte": "^5.1.1",
         "@tailwindcss/vite": "^4.3.3",
-        "daisyui": "^5.7.4",
-        "svelte": "^5.56.8",
-        "svelte-highlight": "^7.16.1",
+        "daisyui": "^5.7.50",
+        "svelte": "^5.57.2",
+        "svelte-highlight": "^7.23.1",
         "tailwindcss": "^4.3.3",
-        "vite": "^6.4.3"
+        "vite": "^6.4.5"
     },
     "dependencies": {
         "@fontsource-variable/plus-jakarta-sans": "^5.3.0",
         "@fontsource/alata": "^5.3.0",
         "@google/generative-ai": "^0.17.2",
-        "docx": "^9.7.1",
+        "@lucide/svelte": "^1.61.0",
+        "docx": "^9.14.0",
         "dotenv": "^16.6.1",
         "jspdf": "^3.0.4",
         "ky": "^1.14.3",

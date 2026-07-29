@@ -6,7 +6,7 @@
         FileJson,
         ClipboardCheck,
         FileDown,
-    } from 'lucide-svelte';
+    } from '@lucide/svelte';
 
     export let step;
 </script>

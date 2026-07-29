@@ -3,6 +3,17 @@
     "useTabs": false,
     "semi": true,
     "singleQuote": true,
+    "overrides": [
+        {
+            "files": [
+                "*.md",
+                "*.mdx"
+            ],
+            "options": {
+                "singleQuote": false
+            }
+        }
+    ],
     "trailingComma": "all",
     "bracketSpacing": true,
     "arrowParens": "avoid"

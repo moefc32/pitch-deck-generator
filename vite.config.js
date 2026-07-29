@@ -13,7 +13,7 @@ export default defineConfig({
         tailwindcss(),
     ],
     ssr: {
-        noExternal: ['lucide-svelte'],
+        noExternal: ['@lucide/svelte'],
     },
     server: {
         host: process.env.VITE_IPBIND || 'localhost',
